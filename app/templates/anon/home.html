@@ -1,0 +1,35 @@
+<h1>In My Bear</h1>
+
+<ul class="list-group" ng-repeat="beers in beer">
+  <li class="list-group-item">
+    <h3> {{ beer[0].name }}
+      <em class="pull-right"> {{ beer[0].abv }} </em>
+      <img class="imgBeer" ng-src="{{ beer[0].image_url }}"/>
+    </h3>
+    <p> {{ beer[0].description }} </p>
+    <p> {{ beer[0].food_pairing }} </p>
+    <button> Add to Fav </button>
+  </li>
+</ul>
+<ul class="list-group" ng-repeat="beers in beer">
+  <li class="list-group-item">
+    <h3> {{ beer1[0].name }}
+      <em class="pull-right"> {{ beer1[0].abv }} </em>
+      <img class="imgBeer" ng-src="{{ beer1[0].image_url }}"/>
+    </h3>
+    <p> {{ beer1[0].description }} </p>
+    <p> {{ beer1[0].food_pairing }} </p>
+    <button> Add to Fav </button>
+  </li>
+</ul>
+<ul class="list-group" ng-repeat="beers in beer">
+  <li class="list-group-item">
+    <h3> {{ beer2[0].name }}
+      <em class="pull-right"> {{ beer2[0].abv }} </em>
+      <img class="imgBeer" ng-src="{{ beer2[0].image_url }}"/>
+    </h3>
+    <p> {{ beer2[0].description }} </p>
+    <p> {{ beer2[0].food_pairing }} </p>
+    <button> Add to Fav </button>
+  </li>
+</ul>
