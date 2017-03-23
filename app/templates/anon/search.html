@@ -1,15 +1,12 @@
 <h1>Search result</h1>
 
-<!-- <div class="descriptionBeer">{{ beer[0].name }} {{ beer[0].abv }} {{ beer[0].description }} {{ beer[0].food_pairing }}
-<img class="imgBeer" src="{{ beer[0].image_url }}">
-</div> -->
 
 <input type="text" ng-model="query">
 <button ng-click="addBeer()" ui-sref="anon.search">Cheeeeeers !</button>
 
 <ul class="list-group">
       <!-- Product container -->
-  <li class="list-group-item" ng-repeat="beers in beer">
+  <li class="list-group-item">
     <h3> {{ beer[0].name }}
       <em class="pull-right"> {{ beer[0].abv }} </em>
       <img class="imgBeer" ng-src="{{ beer[0].image_url }}"/>
