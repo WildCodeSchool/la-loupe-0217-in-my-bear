@@ -58049,7 +58049,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "    </h3>\n" +
     "    <p> {{ beer[0].description }} </p>\n" +
     "    <p> {{ beer[0].food_pairing }} </p>\n" +
-    "    <button> Add to Fav </button>\n" +
+    "    <button ng-show=\"auth.isAuthenticated()\"> Add to Fav </button>\n" +
     "  </li>\n" +
     "</ul>\n" +
     "<ul class=\"list-group\" ng-repeat=\"beers in beer\">\n" +
@@ -58060,7 +58060,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "    </h3>\n" +
     "    <p> {{ beer1[0].description }} </p>\n" +
     "    <p> {{ beer1[0].food_pairing }} </p>\n" +
-    "    <button> Add to Fav </button>\n" +
+    "    <button ng-show=\"auth.isAuthenticated()\"> Add to Fav </button>\n" +
     "  </li>\n" +
     "</ul>\n" +
     "<ul class=\"list-group\" ng-repeat=\"beers in beer\">\n" +
@@ -58071,7 +58071,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "    </h3>\n" +
     "    <p> {{ beer2[0].description }} </p>\n" +
     "    <p> {{ beer2[0].food_pairing }} </p>\n" +
-    "    <button> Add to Fav </button>\n" +
+    "    <button ng-show=\"auth.isAuthenticated()\"> Add to Fav </button>\n" +
     "  </li>\n" +
     "</ul>\n"
   );
@@ -58096,32 +58096,68 @@ angular.module("app").run(["$templateCache", function($templateCache) {
   );
 
   $templateCache.put("anon/navbar.html",
-    "<nav class=\"navbar navbar-default\" role=\"navigation\" ng-controller=\"NavbarController\">\n" +
-    "    <div class=\"container-fluid\">\n" +
-    "        <div class=\"navbar-header\">\n" +
-    "            <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#navbar\">\n" +
-    "        <span class=\"sr-only\">Toggle navigation</span>\n" +
-    "        <span class=\"icon-bar\"></span>\n" +
-    "        <span class=\"icon-bar\"></span>\n" +
-    "        <span class=\"icon-bar\"></span>\n" +
-    "      </button>\n" +
-    "            <a class=\"navbar-brand\" href=\"#\"></a>\n" +
-    "        </div>\n" +
-    "        <div class=\"collapse navbar-collapse\" id=\"navbar\">\n" +
-    "            <ul class=\"nav navbar-nav\">\n" +
-    "                <li ui-sref-active=\"active\"><a ui-sref=\"anon.home\">Home</a></li>\n" +
+    "<nav class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\" ng-controller=\"NavbarController\">\n" +
+    "    <div class=\"container-fluid navbarBack\">\n" +
     "\n" +
-    "            </ul>\n" +
-    "            <ul class=\"nav navbar-nav navbar-right\">\n" +
-    "                <li>\n" +
-    "                    <li ui-sref-active=\"active\"><a ui-sref=\"anon.search\" ng-hide=\"auth.isAuthenticated()\">Search</a></li>\n" +
-    "                    <li ui-sref-active=\"active\"><a ui-sref=\"anon.login\" ng-hide=\"auth.isAuthenticated()\">Login</a></li>\n" +
-    "                    <li ui-sref-active=\"active\"><a ui-sref=\"anon.register\" ng-hide=\"auth.isAuthenticated()\">Register</a></li>\n" +
-    "                    <li ui-sref-active=\"active\"><a ui-sref=\"user.dashboard\" ng-show=\"auth.isAuthenticated()\">Dashboard</a></li>\n" +
-    "                    <li><a ng-click=\"logout()\" ng-show=\"auth.isAuthenticated()\" href='#'>Logout</a></li>\n" +
+    "\n" +
+    "        <!-- System of icon bar -->\n" +
+    "        <div class=\"navbar-header\">\n" +
+    "            <button type=\"button\" class=\"navbar-toggle navbar-left\" data-toggle=\"collapse\" data-target=\"#navbar\">\n" +
+    "                  <span class=\"sr-only\">Toggle navigation</span>\n" +
+    "                  <span class=\"icon-bar\"></span>\n" +
+    "                  <span class=\"icon-bar\"></span>\n" +
+    "                  <span class=\"icon-bar\"></span>\n" +
+    "            </button>\n" +
+    "\n" +
+    "            <!-- Title in navbar -->\n" +
+    "            <a ui-sref=\"anon.home\"><h1 class=\"navbar-text\" id=\"navText\">In My Bear</h1></a>\n" +
+    "\n" +
+    "\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <!-- Dropdowns in navbar right-->\n" +
+    "        <div class=\"collapse navbar-collapse navbar-right\" id=\"navbar\">\n" +
+    "\n" +
+    "            <!-- Logo in navbar for profile and avatard -->\n" +
+    "            <ul class=\"nav navbar-nav navbar-right\" id=\"navbarLogo\">\n" +
+    "                <li ui-sref-active=\"active\">\n" +
+    "                    <a ui-sref=\"user.profile\">\n" +
+    "                        <img class=\"img img-responsive\" src=\"img/imgProfil.png\">\n" +
+    "                    </a>\n" +
     "                </li>\n" +
     "            </ul>\n" +
+    "\n" +
+    "            <ul class=\"nav navbar-link navbar-right\">\n" +
+    "                <li class=\"dropdown\">\n" +
+    "                    <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"navDrop\">Menu<span class=\"caret\"></span></a>\n" +
+    "                    <ul class=\"dropdown-menu\">\n" +
+    "                        <li ui-sref-active=\"active\"><a ui-sref=\"anon.home\">Home</a></li>\n" +
+    "                        <li role=\"separator\" class=\"divider\"></li>\n" +
+    "                        <li ui-sref-active=\"active\"><a ui-sref=\"user.profile\" ng-show=\"auth.isAuthenticated()\">Profile</a></li>\n" +
+    "\n" +
+    "                        <li ui-sref-active=\"active\"><a ui-sref=\"user.Favoris\" ng-show=\"auth.isAuthenticated()\">Favorites</a></li>\n" +
+    "\n" +
+    "                        <li ui-sref-active=\"active\"><a ui-sref=\"user.dashboard\" ng-show=\"auth.isAuthenticated()\">Dashboard</a></li>\n" +
+    "\n" +
+    "                        <li><a ng-click=\"logout()\" ng-show=\"auth.isAuthenticated()\" href='#'>Logout</a></li>\n" +
+    "                    </ul>\n" +
+    "                </li>\n" +
+    "            </ul>\n" +
+    "\n" +
+    "            <!-- System for login and register -->\n" +
+    "            <ul class=\"nav navbar-nav navbar-left\" id=\"navbarLogin1\">\n" +
+    "                <li ui-sref-active=\"active\"><a ui-sref=\"anon.search\" ng-hide=\"auth.isAuthenticated()\" id=\"navbarLogin2\">Search</a></li>\n" +
+    "                <li ui-sref-active=\"active\"><a ui-sref=\"anon.login\" ng-hide=\"auth.isAuthenticated()\" id=\"navbarLogin2\">Login</a></li>\n" +
+    "                <li ui-sref-active=\"active\"><a ui-sref=\"anon.register\" ng-hide=\"auth.isAuthenticated()\" id=\"navbarLogin2\">Register</a></li>\n" +
+    "            </ul>\n" +
+    "\n" +
     "        </div>\n" +
+    "\n" +
+    "\n" +
+    "        <!-- <div class=\"col-lg-offset-2 col-lg-3 col-md-offset-3 col-md-3 col-sm-offset-3 col-sm-3 col-xs-offset-3 col-xs-3\"> -->\n" +
+    "\n" +
+    "        <!-- </div> -->\n" +
+    "\n" +
     "    </div>\n" +
     "</nav>\n"
   );
@@ -58147,16 +58183,13 @@ angular.module("app").run(["$templateCache", function($templateCache) {
   $templateCache.put("anon/search.html",
     "<h1>Search result</h1>\n" +
     "\n" +
-    "<!-- <div class=\"descriptionBeer\">{{ beer[0].name }} {{ beer[0].abv }} {{ beer[0].description }} {{ beer[0].food_pairing }}\n" +
-    "<img class=\"imgBeer\" src=\"{{ beer[0].image_url }}\">\n" +
-    "</div> -->\n" +
     "\n" +
     "<input type=\"text\" ng-model=\"query\">\n" +
     "<button ng-click=\"addBeer()\" ui-sref=\"anon.search\">Cheeeeeers !</button>\n" +
     "\n" +
     "<ul class=\"list-group\">\n" +
     "      <!-- Product container -->\n" +
-    "  <li class=\"list-group-item\" ng-repeat=\"beers in beer\">\n" +
+    "  <li class=\"list-group-item\">\n" +
     "    <h3> {{ beer[0].name }}\n" +
     "      <em class=\"pull-right\"> {{ beer[0].abv }} </em>\n" +
     "      <img class=\"imgBeer\" ng-src=\"{{ beer[0].image_url }}\"/>\n" +

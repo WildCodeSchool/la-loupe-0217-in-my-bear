@@ -175,3 +175,44 @@
 .loi {
   text-align: center;
 }
+/*navbar CSS*/
+.navbarHeight {
+  padding-top: 100px;
+}
+
+#navDrop {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: white;
+}
+
+.navbarBack {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#navText {
+  font-family: 'Josefin Sans', sans-serif;
+  color: orange;
+  padding-top: 5px;
+}
+
+/*#navbarLogo {
+  padding-right: 20px;
+}*/
+
+/*#navbarLogin1 {
+  padding-right: 20px;
+}*/
+
+#navbarLogin2 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: white;
+}
+
+@media screen and (max-width: 767px){
+  #navText {
+    padding-left: 20px;
+  }
+
+}
