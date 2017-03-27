@@ -58000,10 +58000,6 @@ angular.module('app')
                     }
                 }
             });
-            // $urlRouteProvider.when('/viewPage/:param1', {
-            // templateUrl: 'search/:query',
-            // controller: 'BeerController'
-            // });
         $urlRouterProvider.otherwise('/');
     });
 
@@ -58082,11 +58078,12 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "      </div>\n" +
     "  </div>\n" +
     "  <div class=\"row\">\n" +
-    "      <div class=\"box\">\n" +
+    "      <div class=\"box descBeer\">\n" +
     "          <div class=\"col-lg-12\">\n" +
     "              <hr>\n" +
     "              <h2 class=\"intro-text text-center\">\n" +
     "                  <strong> {{ beer[0].name }} </strong>\n" +
+    "                  <em class=\"pull-right\"> {{ beer[0].abv }} </em>\n" +
     "              </h2>\n" +
     "              <hr>\n" +
     "              <img class=\"img-responsive img-border img-left imgBeer\" ng-src=\"{{ beer[0].image_url }}\" alt=\"\">\n" +
@@ -58094,16 +58091,16 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "              <p>{{ beer[0].description }}</p>\n" +
     "              <p>{{ beer[0].food_pairing }}</p>\n" +
     "              <button ng-show=\"auth.isAuthenticated()\"> Add to Fav </button>\n" +
-    "              <!-- <p></p> -->\n" +
     "          </div>\n" +
     "      </div>\n" +
     "  </div>\n" +
     "  <div class=\"row\">\n" +
-    "      <div class=\"box\">\n" +
+    "      <div class=\"box descBeer\">\n" +
     "          <div class=\"col-lg-12\">\n" +
     "              <hr>\n" +
     "              <h2 class=\"intro-text text-center\">\n" +
     "                  <strong> {{ beer1[0].name }} </strong>\n" +
+    "                  <em class=\"pull-right\"> {{ beer1[0].abv }} </em>\n" +
     "              </h2>\n" +
     "              <hr>\n" +
     "              <img class=\"img-responsive img-border img-left imgBeer\" ng-src=\"{{ beer1[0].image_url }}\" alt=\"\">\n" +
@@ -58111,16 +58108,16 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "              <p>{{ beer1[0].description }}</p>\n" +
     "              <p>{{ beer1[0].food_pairing }}</p>\n" +
     "              <button ng-show=\"auth.isAuthenticated()\"> Add to Fav </button>\n" +
-    "              <!-- <p></p> -->\n" +
     "          </div>\n" +
     "      </div>\n" +
     "  </div>\n" +
     "  <div class=\"row\">\n" +
-    "      <div class=\"box\">\n" +
+    "      <div class=\"box descBeer\">\n" +
     "          <div class=\"col-lg-12\">\n" +
     "              <hr>\n" +
     "              <h2 class=\"intro-text text-center\">\n" +
     "                  <strong> {{ beer2[0].name }} </strong>\n" +
+    "                  <em class=\"pull-right\"> {{ beer2[0].abv }} </em>\n" +
     "              </h2>\n" +
     "              <hr>\n" +
     "              <img class=\"img-responsive img-border img-left imgBeer\" ng-src=\"{{ beer2[0].image_url }}\" alt=\"\">\n" +
@@ -58128,11 +58125,22 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "              <p>{{ beer2[0].description }}</p>\n" +
     "              <p>{{ beer2[0].food_pairing }}</p>\n" +
     "              <button ng-show=\"auth.isAuthenticated()\"> Add to Fav </button>\n" +
-    "              <!-- <p></p> -->\n" +
     "          </div>\n" +
     "      </div>\n" +
     "  </div>\n" +
-    "</div>\n"
+    "</div>\n" +
+    "\n" +
+    "<!-- <div style=\"height: 305px\">\n" +
+    "    <div uib-carousel active=\"active\" interval=\"myInterval\" no-wrap=\"noWrapSlides\">\n" +
+    "      <div uib-slide ng-repeat=\"slide in slides track by slide.id\" index=\"slide.id\">\n" +
+    "        <img ng-src=\"{{slide.image}}\" style=\"margin:auto;\">\n" +
+    "        <div class=\"carousel-caption\">\n" +
+    "          <h4>Slide {{slide.id}}</h4>\n" +
+    "          <p>{{slide.text}}</p>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "</div> -->\n"
   );
 
   $templateCache.put("anon/login.html",
@@ -58228,6 +58236,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "                <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-lock\"></i></span>\n" +
     "                <input id=\"password\" type=\"password\" class=\"form-control\" ng-model=\"user.password\" required placeholder=\"Password\">\n" +
     "            </div>\n" +
+    "            <button type=\"submit\" class=\"btn btn-primary btn-block registerBack\">Register</button>\n" +
     "        </form>\n" +
     "    </div>\n" +
     "</div>\n"

@@ -1,5 +1,5 @@
 .imgBeer {
-  width: 80px;
+  width: 50px;
   margin-left: 50px;
 }
 .descriptionBeer {
@@ -196,14 +196,6 @@
   padding-top: 5px;
 }
 
-/*#navbarLogo {
-  padding-right: 20px;
-}*/
-
-/*#navbarLogin1 {
-  padding-right: 20px;
-}*/
-
 #navbarLogin2 {
   padding-top: 30px;
   padding-bottom: 30px;
@@ -214,7 +206,21 @@
   #navText {
     padding-left: 20px;
   }
-
+  .img-responsive {
+    width: 30px;
+  }
+  .box:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+  .img-left {
+    float: left;
+    margin-right: 25px;
+  }
+  .top-divider {
+    margin-top: 0;
+  }
 }
 
 
@@ -254,4 +260,10 @@
     margin-right: 20px;
     margin-bottom: 10px;
     float: left;
+}
+.descBeer {
+  font-size: 1.5em;
+}
+.wllppr {
+  background-image: url(/img/bg2.jpg);
 }

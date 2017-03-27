@@ -85,9 +85,5 @@ angular.module('app')
                     }
                 }
             });
-            // $urlRouteProvider.when('/viewPage/:param1', {
-            // templateUrl: 'search/:query',
-            // controller: 'BeerController'
-            // });
         $urlRouterProvider.otherwise('/');
     });
