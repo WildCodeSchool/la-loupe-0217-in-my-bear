@@ -7555,6 +7555,7 @@ button.close {
   }
   .img-responsive {
     width: 30px;
+    margin-left: 50px;
   }
   .box:after {
     content: '';
@@ -7630,6 +7631,15 @@ h6 {
     font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     letter-spacing: 1px;
+}
+.searchBar {
+  padding-bottom: 15px;
+}
+.desc {
+  margin-top: 70px;
+}
+.food_pairing {
+text-align: center;
 }
 
 

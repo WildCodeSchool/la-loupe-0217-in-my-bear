@@ -238,24 +238,56 @@ angular.module("app").run(["$templateCache", function($templateCache) {
   );
 
   $templateCache.put("anon/search.html",
-    "<h1>Search result</h1>\n" +
+    "<div class=\"container\">\n" +
+    "  <div class=\"row searchBar\">\n" +
+    "    <form ng-submit=\"submit\">\n" +
+    "      <input type=\"text\" ng-model=\"query\">\n" +
+    "      <button ng-click=\"addBeer()\" ui-sref=\"anon.search\">Cheeeeeers !</button>\n" +
+    "    </form>\n" +
+    "  </div>\n" +
+    "  <div class=\"row\">\n" +
+    "        <div class=\"box\">\n" +
+    "            <div class=\"col-lg-12 text-center\">\n" +
     "\n" +
-    "<form ng-submit=\"submit\">\n" +
-    "<input type=\"text\" ng-model=\"query\">\n" +
-    "<button ng-click=\"addBeer()\" ui-sref=\"anon.search\">Cheeeeeers !</button>\n" +
-    "</form>\n" +
+    "                <h2 class=\"brand-before\">\n" +
+    "                    <small>Make</small>\n" +
+    "                </h2>\n" +
     "\n" +
-    "<ul class=\"list-group\">\n" +
-    "      <!-- Product container -->\n" +
-    "  <li class=\"list-group-item\">\n" +
-    "    <h3> {{ beer[0].name }}\n" +
-    "      <em class=\"pull-right\"> {{ beer[0].abv }} </em>\n" +
-    "      <img class=\"imgBeer\" ng-src=\"{{ beer[0].image_url }}\"/>\n" +
-    "    </h3>\n" +
-    "    <p> {{ beer[0].description }} </p>\n" +
-    "    <!-- <button> Add to Fav </button> -->\n" +
-    "  </li>\n" +
-    "</ul>\n"
+    "                <hr class=\"tagline-divider\">\n" +
+    "                <h2>\n" +
+    "                    <small>You\n" +
+    "                        <strong>Own Beer</strong>\n" +
+    "                    </small>\n" +
+    "                </h2>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"row\">\n" +
+    "        <div class=\"box\">\n" +
+    "            <div class=\"col-lg-12\">\n" +
+    "                <hr>\n" +
+    "                <h3 class=\"intro-text text-center\"><strong>{{beer[0].name}}</strong>\n" +
+    "                </h3>\n" +
+    "                <hr>\n" +
+    "                <img class=\"img-responsive img-left imgBeer\" src=\"{{beer[0].image_url}}\">\n" +
+    "                <hr class=\"visible-xs\">\n" +
+    "                <p class=\"desc\">{{ beer[0].description }}</p>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"row\">\n" +
+    "        <div class=\"box\">\n" +
+    "            <div class=\"col-lg-12\">\n" +
+    "                <hr>\n" +
+    "                <h2 class=\"intro-text text-center\">Food Pairing\n" +
+    "                    <strong>Suggestion</strong>\n" +
+    "                </h2>\n" +
+    "                <hr>\n" +
+    "                <p class=food_pairing>{{beer[0].food_pairing}}</p>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</div>\n"
   );
 
   $templateCache.put("user/dashboard.html",
