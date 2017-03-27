@@ -7567,4 +7567,43 @@ button.close {
 }
 
 
+/* CAROUSEL */
+.box {
+    margin-bottom: 20px;
+    padding: 30px 15px;
+    background: #fff;
+    background: rgba(255,255,255,0.9);
+}
+.img-full {
+    min-width: 100%;
+}
+.brand-before,
+.brand-name {
+    text-transform: capitalize;
+}
+
+.brand-before {
+    margin: 15px 0;
+}
+
+.brand-name {
+    margin: 0;
+    font-size: 4em;
+}
+.tagline-divider {
+    margin: 15px auto 3px;
+    max-width: 250px;
+    border-color: #999999;
+}
+.img-border {
+    float: none;
+    margin: 0 auto 0;
+}
+.img-left {
+    margin-right: 20px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+
 /*# sourceMappingURL=app.css.map */

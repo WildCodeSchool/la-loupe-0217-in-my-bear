@@ -3,7 +3,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
   $templateCache.put("anon/footer.html",
     "<div>\n" +
     "  <div class=\"footer\" id=\"footer\" ng-controller=\"FooterController\">\n" +
-    "    <div class=\"container\">\n" +
+    "    <div class=\"container-fluid\">\n" +
     "        <div class=\"row\">\n" +
     "            <ul>\n" +
     "              <li><p class=\"loi\">L'abus d'alcool est dangereux pour la santé, consommez avec modération<p></li>\n" +
@@ -30,41 +30,100 @@ angular.module("app").run(["$templateCache", function($templateCache) {
   );
 
   $templateCache.put("anon/home.html",
-    "<h1>In My Bear</h1>\n" +
+    "<div class=\"container\">\n" +
     "\n" +
-    "<ul class=\"list-group\" ng-repeat=\"beers in beer\">\n" +
-    "  <li class=\"list-group-item\">\n" +
-    "    <h3> {{ beer[0].name }}\n" +
-    "      <em class=\"pull-right\"> {{ beer[0].abv }} </em>\n" +
-    "      <img class=\"imgBeer\" ng-src=\"{{ beer[0].image_url }}\"/>\n" +
-    "    </h3>\n" +
-    "    <p> {{ beer[0].description }} </p>\n" +
-    "    <p> {{ beer[0].food_pairing }} </p>\n" +
-    "    <button ng-show=\"auth.isAuthenticated()\"> Add to Fav </button>\n" +
-    "  </li>\n" +
-    "</ul>\n" +
-    "<ul class=\"list-group\" ng-repeat=\"beers in beer\">\n" +
-    "  <li class=\"list-group-item\">\n" +
-    "    <h3> {{ beer1[0].name }}\n" +
-    "      <em class=\"pull-right\"> {{ beer1[0].abv }} </em>\n" +
-    "      <img class=\"imgBeer\" ng-src=\"{{ beer1[0].image_url }}\"/>\n" +
-    "    </h3>\n" +
-    "    <p> {{ beer1[0].description }} </p>\n" +
-    "    <p> {{ beer1[0].food_pairing }} </p>\n" +
-    "    <button ng-show=\"auth.isAuthenticated()\"> Add to Fav </button>\n" +
-    "  </li>\n" +
-    "</ul>\n" +
-    "<ul class=\"list-group\" ng-repeat=\"beers in beer\">\n" +
-    "  <li class=\"list-group-item\">\n" +
-    "    <h3> {{ beer2[0].name }}\n" +
-    "      <em class=\"pull-right\"> {{ beer2[0].abv }} </em>\n" +
-    "      <img class=\"imgBeer\" ng-src=\"{{ beer2[0].image_url }}\"/>\n" +
-    "    </h3>\n" +
-    "    <p> {{ beer2[0].description }} </p>\n" +
-    "    <p> {{ beer2[0].food_pairing }} </p>\n" +
-    "    <button ng-show=\"auth.isAuthenticated()\"> Add to Fav </button>\n" +
-    "  </li>\n" +
-    "</ul>\n"
+    "  <div class=\"row\">\n" +
+    "      <div class=\"box\">\n" +
+    "          <div class=\"col-lg-12 text-center\">\n" +
+    "              <div id=\"carousel-example-generic\" class=\"carousel slide\">\n" +
+    "                  <!-- Indicators -->\n" +
+    "                  <ol class=\"carousel-indicators hidden-xs\">\n" +
+    "                      <li data-target=\"#carousel-example-generic\" data-slide-to=\"0\" class=\"active\"></li>\n" +
+    "                      <li data-target=\"#carousel-example-generic\" data-slide-to=\"1\"></li>\n" +
+    "                      <li data-target=\"#carousel-example-generic\" data-slide-to=\"2\"></li>\n" +
+    "                  </ol>\n" +
+    "\n" +
+    "                  <!-- Wrapper for slides -->\n" +
+    "                  <div class=\"carousel-inner\">\n" +
+    "                      <div class=\"item active\">\n" +
+    "                          <img class=\"img-responsive img-full\" src=\"img/slide-1.jpg\" alt=\"\">\n" +
+    "                      </div>\n" +
+    "                      <div class=\"item\">\n" +
+    "                          <img class=\"img-responsive img-full\" src=\"img/slide-2.jpg\" alt=\"\">\n" +
+    "                      </div>\n" +
+    "                      <div class=\"item\">\n" +
+    "                          <img class=\"img-responsive img-full\" src=\"img/slide-3.png\" alt=\"\">\n" +
+    "                      </div>\n" +
+    "                  </div>\n" +
+    "\n" +
+    "                  <!-- Controls -->\n" +
+    "                  <a class=\"left carousel-control\" href=\"#carousel-example-generic\" data-slide=\"prev\">\n" +
+    "                      <span class=\"icon-prev\"></span>\n" +
+    "                  </a>\n" +
+    "                  <a class=\"right carousel-control\" href=\"#carousel-example-generic\" data-slide=\"next\">\n" +
+    "                      <span class=\"icon-next\"></span>\n" +
+    "                  </a>\n" +
+    "              </div>\n" +
+    "              <h2 class=\"brand-before\">\n" +
+    "                  <small>Welcome to</small>\n" +
+    "              </h2>\n" +
+    "              <h1 class=\"brand-name\">In My Bear</h1>\n" +
+    "              <hr class=\"tagline-divider\">\n" +
+    "          </div>\n" +
+    "      </div>\n" +
+    "  </div>\n" +
+    "  <div class=\"row\">\n" +
+    "      <div class=\"box\">\n" +
+    "          <div class=\"col-lg-12\">\n" +
+    "              <hr>\n" +
+    "              <h2 class=\"intro-text text-center\">\n" +
+    "                  <strong> {{ beer[0].name }} </strong>\n" +
+    "              </h2>\n" +
+    "              <hr>\n" +
+    "              <img class=\"img-responsive img-border img-left imgBeer\" ng-src=\"{{ beer[0].image_url }}\" alt=\"\">\n" +
+    "              <hr class=\"visible-xs\">\n" +
+    "              <p>{{ beer[0].description }}</p>\n" +
+    "              <p>{{ beer[0].food_pairing }}</p>\n" +
+    "              <button ng-show=\"auth.isAuthenticated()\"> Add to Fav </button>\n" +
+    "              <!-- <p></p> -->\n" +
+    "          </div>\n" +
+    "      </div>\n" +
+    "  </div>\n" +
+    "  <div class=\"row\">\n" +
+    "      <div class=\"box\">\n" +
+    "          <div class=\"col-lg-12\">\n" +
+    "              <hr>\n" +
+    "              <h2 class=\"intro-text text-center\">\n" +
+    "                  <strong> {{ beer1[0].name }} </strong>\n" +
+    "              </h2>\n" +
+    "              <hr>\n" +
+    "              <img class=\"img-responsive img-border img-left imgBeer\" ng-src=\"{{ beer1[0].image_url }}\" alt=\"\">\n" +
+    "              <hr class=\"visible-xs\">\n" +
+    "              <p>{{ beer1[0].description }}</p>\n" +
+    "              <p>{{ beer1[0].food_pairing }}</p>\n" +
+    "              <button ng-show=\"auth.isAuthenticated()\"> Add to Fav </button>\n" +
+    "              <!-- <p></p> -->\n" +
+    "          </div>\n" +
+    "      </div>\n" +
+    "  </div>\n" +
+    "  <div class=\"row\">\n" +
+    "      <div class=\"box\">\n" +
+    "          <div class=\"col-lg-12\">\n" +
+    "              <hr>\n" +
+    "              <h2 class=\"intro-text text-center\">\n" +
+    "                  <strong> {{ beer2[0].name }} </strong>\n" +
+    "              </h2>\n" +
+    "              <hr>\n" +
+    "              <img class=\"img-responsive img-border img-left imgBeer\" ng-src=\"{{ beer2[0].image_url }}\" alt=\"\">\n" +
+    "              <hr class=\"visible-xs\">\n" +
+    "              <p>{{ beer2[0].description }}</p>\n" +
+    "              <p>{{ beer2[0].food_pairing }}</p>\n" +
+    "              <button ng-show=\"auth.isAuthenticated()\"> Add to Fav </button>\n" +
+    "              <!-- <p></p> -->\n" +
+    "          </div>\n" +
+    "      </div>\n" +
+    "  </div>\n" +
+    "</div>\n"
   );
 
   $templateCache.put("anon/login.html",
@@ -143,12 +202,6 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "            </ul>\n" +
     "\n" +
     "        </div>\n" +
-    "\n" +
-    "\n" +
-    "        <!-- <div class=\"col-lg-offset-2 col-lg-3 col-md-offset-3 col-md-3 col-sm-offset-3 col-sm-3 col-xs-offset-3 col-xs-3\"> -->\n" +
-    "\n" +
-    "        <!-- </div> -->\n" +
-    "\n" +
     "    </div>\n" +
     "</nav>\n"
   );
@@ -174,9 +227,10 @@ angular.module("app").run(["$templateCache", function($templateCache) {
   $templateCache.put("anon/search.html",
     "<h1>Search result</h1>\n" +
     "\n" +
-    "\n" +
+    "<form ng-submit=\"submit\">\n" +
     "<input type=\"text\" ng-model=\"query\">\n" +
     "<button ng-click=\"addBeer()\" ui-sref=\"anon.search\">Cheeeeeers !</button>\n" +
+    "</form>\n" +
     "\n" +
     "<ul class=\"list-group\">\n" +
     "      <!-- Product container -->\n" +
