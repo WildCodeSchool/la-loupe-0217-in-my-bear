@@ -58163,7 +58163,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
   );
 
   $templateCache.put("anon/navbar.html",
-    "<nav class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\" ng-controller=\"NavbarController\">\n" +
+    "<nav class=\"navbar navbar-link navbar-fixed-top\" role=\"navigation\" ng-controller=\"NavbarController\">\n" +
     "    <div class=\"container-fluid navbarBack\">\n" +
     "\n" +
     "\n" +

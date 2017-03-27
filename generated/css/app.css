@@ -7377,13 +7377,11 @@ button.close {
 }
 
 .footer {
-    background: #EDEFF1;
+    background: rgba(139, 38, 21, 0.8);
     height: auto;
     padding-bottom: 30px;
     position: relative;
     width: 100%;
-    border-bottom: 1px solid #CCCCCC;
-    border-top: 1px solid #DDDDDD;
 }
 
 .footer p {
@@ -7536,7 +7534,7 @@ button.close {
 }
 
 .navbarBack {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(139, 38, 21, 0.9);
 }
 
 #navText {
@@ -7614,7 +7612,24 @@ button.close {
   font-size: 1.5em;
 }
 .wllppr {
-  background-image: url(/img/bg2.jpg);
+  background: url('/img/bg4.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+body {
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 
