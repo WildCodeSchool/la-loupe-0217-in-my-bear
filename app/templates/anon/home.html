@@ -49,9 +49,9 @@
                   <em class="pull-right"> {{ beer[0].abv }} </em>
               </h2>
               <hr>
-              <img class="img-responsive img-border img-left imgBeer" ng-src="{{ beer[0].image_url }}" alt="">
+              <img class="img-responsive img-border img-left imgBeer col-lg-2" ng-src="{{ beer[0].image_url }}" alt="">
               <hr class="visible-xs">
-              <p>{{ beer[0].description }}</p>
+              <p class="col-lg-10">{{ beer[0].description }}</p>
               <p>{{ beer[0].food_pairing }}</p>
               <button ng-show="auth.isAuthenticated()"> Add to Fav </button>
           </div>
@@ -66,9 +66,9 @@
                   <em class="pull-right"> {{ beer1[0].abv }} </em>
               </h2>
               <hr>
-              <img class="img-responsive img-border img-left imgBeer" ng-src="{{ beer1[0].image_url }}" alt="">
+              <img class="img-responsive img-border img-left imgBeer col-lg-2" ng-src="{{ beer1[0].image_url }}" alt="">
               <hr class="visible-xs">
-              <p>{{ beer1[0].description }}</p>
+              <p class="col-lg-10">{{ beer1[0].description }}</p>
               <p>{{ beer1[0].food_pairing }}</p>
               <button ng-show="auth.isAuthenticated()"> Add to Fav </button>
           </div>
@@ -83,24 +83,12 @@
                   <em class="pull-right"> {{ beer2[0].abv }} </em>
               </h2>
               <hr>
-              <img class="img-responsive img-border img-left imgBeer" ng-src="{{ beer2[0].image_url }}" alt="">
+              <img class="img-responsive img-border img-left imgBeer col-lg-2" ng-src="{{ beer2[0].image_url }}" alt="">
               <hr class="visible-xs">
-              <p>{{ beer2[0].description }}</p>
+              <p class="col-lg-10">{{ beer2[0].description }}</p>
               <p>{{ beer2[0].food_pairing }}</p>
               <button ng-show="auth.isAuthenticated()"> Add to Fav </button>
           </div>
       </div>
   </div>
 </div>
-
-<!-- <div style="height: 305px">
-    <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-      <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-        <img ng-src="{{slide.image}}" style="margin:auto;">
-        <div class="carousel-caption">
-          <h4>Slide {{slide.id}}</h4>
-          <p>{{slide.text}}</p>
-        </div>
-      </div>
-    </div>
-</div> -->

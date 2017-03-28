@@ -9,4 +9,10 @@ angular.module('app')
             console.log(err);
           });
       };
+      $scope.expanded = false;
+
+      $scope.expand_collapse = function()
+      {
+          $scope.expanded = !$scope.expanded;
+      };
     });

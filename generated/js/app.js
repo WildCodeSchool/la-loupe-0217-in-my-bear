@@ -57911,6 +57911,12 @@ angular.module('app')
             console.log(err);
           });
       };
+      $scope.expanded = false;
+
+      $scope.expand_collapse = function()
+      {
+          $scope.expanded = !$scope.expanded;
+      };
     });
 
 angular.module('app')
@@ -58086,9 +58092,9 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "                  <em class=\"pull-right\"> {{ beer[0].abv }} </em>\n" +
     "              </h2>\n" +
     "              <hr>\n" +
-    "              <img class=\"img-responsive img-border img-left imgBeer\" ng-src=\"{{ beer[0].image_url }}\" alt=\"\">\n" +
+    "              <img class=\"img-responsive img-border img-left imgBeer col-lg-2\" ng-src=\"{{ beer[0].image_url }}\" alt=\"\">\n" +
     "              <hr class=\"visible-xs\">\n" +
-    "              <p>{{ beer[0].description }}</p>\n" +
+    "              <p class=\"col-lg-10\">{{ beer[0].description }}</p>\n" +
     "              <p>{{ beer[0].food_pairing }}</p>\n" +
     "              <button ng-show=\"auth.isAuthenticated()\"> Add to Fav </button>\n" +
     "          </div>\n" +
@@ -58103,9 +58109,9 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "                  <em class=\"pull-right\"> {{ beer1[0].abv }} </em>\n" +
     "              </h2>\n" +
     "              <hr>\n" +
-    "              <img class=\"img-responsive img-border img-left imgBeer\" ng-src=\"{{ beer1[0].image_url }}\" alt=\"\">\n" +
+    "              <img class=\"img-responsive img-border img-left imgBeer col-lg-2\" ng-src=\"{{ beer1[0].image_url }}\" alt=\"\">\n" +
     "              <hr class=\"visible-xs\">\n" +
-    "              <p>{{ beer1[0].description }}</p>\n" +
+    "              <p class=\"col-lg-10\">{{ beer1[0].description }}</p>\n" +
     "              <p>{{ beer1[0].food_pairing }}</p>\n" +
     "              <button ng-show=\"auth.isAuthenticated()\"> Add to Fav </button>\n" +
     "          </div>\n" +
@@ -58120,27 +58126,15 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "                  <em class=\"pull-right\"> {{ beer2[0].abv }} </em>\n" +
     "              </h2>\n" +
     "              <hr>\n" +
-    "              <img class=\"img-responsive img-border img-left imgBeer\" ng-src=\"{{ beer2[0].image_url }}\" alt=\"\">\n" +
+    "              <img class=\"img-responsive img-border img-left imgBeer col-lg-2\" ng-src=\"{{ beer2[0].image_url }}\" alt=\"\">\n" +
     "              <hr class=\"visible-xs\">\n" +
-    "              <p>{{ beer2[0].description }}</p>\n" +
+    "              <p class=\"col-lg-10\">{{ beer2[0].description }}</p>\n" +
     "              <p>{{ beer2[0].food_pairing }}</p>\n" +
     "              <button ng-show=\"auth.isAuthenticated()\"> Add to Fav </button>\n" +
     "          </div>\n" +
     "      </div>\n" +
     "  </div>\n" +
-    "</div>\n" +
-    "\n" +
-    "<!-- <div style=\"height: 305px\">\n" +
-    "    <div uib-carousel active=\"active\" interval=\"myInterval\" no-wrap=\"noWrapSlides\">\n" +
-    "      <div uib-slide ng-repeat=\"slide in slides track by slide.id\" index=\"slide.id\">\n" +
-    "        <img ng-src=\"{{slide.image}}\" style=\"margin:auto;\">\n" +
-    "        <div class=\"carousel-caption\">\n" +
-    "          <h4>Slide {{slide.id}}</h4>\n" +
-    "          <p>{{slide.text}}</p>\n" +
-    "        </div>\n" +
-    "      </div>\n" +
-    "    </div>\n" +
-    "</div> -->\n"
+    "</div>\n"
   );
 
   $templateCache.put("anon/login.html",
@@ -58253,11 +58247,9 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "  <div class=\"row\">\n" +
     "        <div class=\"box\">\n" +
     "            <div class=\"col-lg-12 text-center\">\n" +
-    "\n" +
     "                <h2 class=\"brand-before\">\n" +
     "                    <small>Make</small>\n" +
     "                </h2>\n" +
-    "\n" +
     "                <hr class=\"tagline-divider\">\n" +
     "                <h2>\n" +
     "                    <small>You\n" +
@@ -58268,13 +58260,13 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "        </div>\n" +
     "    </div>\n" +
     "    <div class=\"row\">\n" +
-    "        <div class=\"box\">\n" +
+    "        <div class=\"box descBeer\">\n" +
     "            <div class=\"col-lg-12\">\n" +
     "                <hr>\n" +
     "                <h3 class=\"intro-text text-center\"><strong>{{beer[0].name}}</strong>\n" +
     "                </h3>\n" +
     "                <hr>\n" +
-    "                <img class=\"img-responsive img-left imgBeer\" src=\"{{beer[0].image_url}}\">\n" +
+    "                <img class=\"img-responsive img-left imgBeer col-lg-2\" src=\"{{beer[0].image_url}}\">\n" +
     "                <hr class=\"visible-xs\">\n" +
     "                <p class=\"desc\">{{ beer[0].description }}</p>\n" +
     "            </div>\n" +
@@ -58288,7 +58280,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "                    <strong>Suggestion</strong>\n" +
     "                </h2>\n" +
     "                <hr>\n" +
-    "                <p class=food_pairing>{{beer[0].food_pairing}}</p>\n" +
+    "                <p ng-repeat=\"ingredient in beer[0].food_pairing\" class=food_pairing>{{ingredient}}</p>\n" +
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
@@ -58329,7 +58321,79 @@ angular.module("app").run(["$templateCache", function($templateCache) {
   );
 
   $templateCache.put("user/profile.html",
-    "Profile de {{user.email}}\n"
+    "<div class=\"container-fluid\">\n" +
+    "    <div class=\"row\">\n" +
+    "        <div class=\"col-lg-offset-5 col-lg-2 col-xs-offset-3 col-xs-6 profilPadding\">\n" +
+    "            <a href=\"\" data-toggle=\"modal\" data-target=\"#myModal\" class=\"\"><img src=\"img/imageProfil.png\" class=\"img-responsive img-circle\" alt=\"...\"></a>\n" +
+    "        </div>\n" +
+    "        <!-- Modal -->\n" +
+    "        <div class=\"modal fade modalHeight\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\">\n" +
+    "            <div class=\"modal-dialog\" role=\"document\">\n" +
+    "                <div class=\"modal-content profilModal\">\n" +
+    "                    <div class=\"modal-header profilModalText\">\n" +
+    "                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" aria-hidden=\"true\"><span>&times;</span></button>\n" +
+    "                        <h4 class=\"modal-title\" id=\"myModalLabel\">Avatar choice</h4>\n" +
+    "                    </div>\n" +
+    "                    <div class=\"modal-body\">\n" +
+    "                        <div class=\"row modalImage\">\n" +
+    "                            <div class=\"col-lg-offset-2 col-lg-8 col-xs-offset-1 col-xs-11 profilImage\">\n" +
+    "                                <a href=\"\"><img src=\"img/imgProfilMini.png\" alt=\"...\"></a>\n" +
+    "                                <a href=\"\"><img src=\"img/imgBear1Mini.png\" alt=\"...\"></a>\n" +
+    "                                <a href=\"\"><img src=\"img/imgBear2Mini.png\" alt=\"...\"></a>\n" +
+    "                                <a href=\"\"><img src=\"img/imgCoalaMini.png\" alt=\"...\"></a>\n" +
+    "                                <a href=\"\"><img src=\"img/imgDeerMini.png\" alt=\"...\"></a>\n" +
+    "                                <a href=\"\"><img src=\"img/imgDogMini.png\" alt=\"...\"></a>\n" +
+    "                                <a href=\"\"><img src=\"img/imgFoxMini.png\" alt=\"...\"></a>\n" +
+    "                                <a href=\"\"><img src=\"img/imgFrogMini.png\" alt=\"...\"></a>\n" +
+    "                                <a href=\"\"><img src=\"img/imgLazyMini.png\" alt=\"...\"></a>\n" +
+    "                                <a href=\"\"><img src=\"img/imgMonkeyMini.png\" alt=\"...\"></a>\n" +
+    "                                <a href=\"\"><img src=\"img/imgPanda1Mini.png\" alt=\"...\"></a>\n" +
+    "                                <a href=\"\"><img src=\"img/imgPanda2Mini.png\" alt=\"...\"></a>\n" +
+    "                                <a href=\"\"><img src=\"img/imgPigMini.png\" alt=\"...\"></a>\n" +
+    "                                <a href=\"\"><img src=\"img/imgRaccoonMini.png\" alt=\"...\"></a>\n" +
+    "                                <a href=\"\"><img src=\"img/imgRhinocerosMini.png\" alt=\"...\"></a>\n" +
+    "                                <a href=\"\"><img src=\"img/imgTigerMini.png\" alt=\"...\"></a>\n" +
+    "                                <a href=\"\"><img src=\"img/imgWolfMini.png\" alt=\"...\"></a>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                    <div class=\"modal-footer\">\n" +
+    "                        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n" +
+    "                        <button type=\"button\" class=\"btn btn-warning modalButton\">Save changes</button>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"row\" id=\"profilChange\">\n" +
+    "        <div class=\"col-lg-offset-2 col-lg-8\">\n" +
+    "            <h2 class=\"text-center profilText\">Profil of {{user.email}}</h3>\n" +
+    "            <div class=\"input-group profilInput\">\n" +
+    "                <span class=\"input-group-addon\" id=\"sizing-addon2\"><i class=\"glyphicon glyphicon-user\"></i></span>\n" +
+    "                <input type=\"text\" class=\"form-control\" placeholder=\"change profil{{user.email}}\" aria-describedby=\"sizing-addon2\">\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"row\">\n" +
+    "        <div class=\"col-lg-offset-2 col-lg-8\">\n" +
+    "            <div class=\"input-group profilInput\">\n" +
+    "                <span class=\"input-group-addon\" id=\"sizing-addon2\"><i class=\"glyphicon glyphicon-lock\"></i></span>\n" +
+    "                <input type=\"text\" class=\"form-control\" placeholder=\"Change password\" aria-describedby=\"sizing-addon2\">\n" +
+    "            </div>\n" +
+    "            <button type=\"submit\" class=\"btn btn-warning btn-block profilBack\">Validate the change</button>\n" +
+    "        </div>\n" +
+    "\n" +
+    "    </div>\n" +
+    "</div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "<!-- Profile de {{user.email}} -->\n"
   );
 
 }]);

@@ -1,6 +1,5 @@
 .imgBeer {
-  width: 50px;
-  margin-left: 50px;
+  width: 65px;
 }
 .descriptionBeer {
   border: 1px solid #CCCCCC;
@@ -181,7 +180,7 @@
 #navDrop {
   padding-top: 30px;
   padding-bottom: 30px;
-  color: white;
+  color: orange;
 }
 
 .navbarBack {
@@ -197,7 +196,7 @@
 #navbarLogin2 {
   padding-top: 30px;
   padding-bottom: 30px;
-  color: white;
+  color: orange;
 }
 
 @media screen and (max-width: 767px){
@@ -207,6 +206,7 @@
   .img-responsive {
     width: 30px;
     margin-left: 50px;
+    margin-top: 0 auto;
   }
   .box:after {
     content: '';
@@ -261,7 +261,7 @@
     float: left;
 }
 .descBeer {
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 .wllppr {
   background: url('/img/bg4.jpg') no-repeat center center fixed;
@@ -291,4 +291,76 @@ h6 {
 }
 .food_pairing {
 text-align: center;
+}
+/*CSS for page html login and register.*/
+
+.loginBack {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#loginManage {
+  margin-top: 70px;
+}
+
+#loginSpace {
+  padding-bottom: 30px;
+}
+
+.registerBack {
+  background-color: rgba(0, 0, 20, 0.5);
+}
+#registerManage {
+  margin-top: 70px;
+}
+
+#registerSpace {
+  padding-bottom: 30px;
+}
+
+/*CSS for page profil*/
+
+.profilModalText {
+  color: orange;
+}
+
+.modalHeight {
+  padding-top: 150px;
+}
+
+.modalImage {
+  padding-top: 20px;
+}
+
+.profilModal {
+  background-color: rgba(139, 38, 21, 0.3);
+}
+
+.profilImage img {
+  margin-bottom: 20px;
+  margin-right: 9px;
+  margin-left: 10px;
+}
+
+.modalButton {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+/*page od profil*/
+
+#profilChange {
+  margin-top: 200px;
+}
+
+.profilInput {
+  padding-bottom: 30px;
+}
+
+.profilBack {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.profilPadding {
+  padding-left: 30px;
+}
+
+.profilText {
+  color: orange;
 }
