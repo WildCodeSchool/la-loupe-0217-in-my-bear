@@ -59,12 +59,25 @@ angular.module('app')
                 url: '/user',
                 views: {
                     'navbar@': {
-                        templateUrl: 'user/navbar.html',
+                        templateUrl: 'anon/navbar.html',
                         controller: 'NavbarController'
+                    },
+                    'footer@': {
+                      templateUrl: 'anon/footer.html',
+                      controller: 'FooterController'
                     }
                 },
                 data: {
                     access: AccessLevels.user
+                }
+            })
+            .state('user.favorites', {
+                url: '/favorites',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/favorites.html',
+                        controller: 'FavoritesController'
+                    }
                 }
             })
             .state('user.dashboard', {

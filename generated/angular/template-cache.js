@@ -123,7 +123,18 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "          </div>\n" +
     "      </div>\n" +
     "  </div>\n" +
-    "</div>\n"
+    "  <!--\n" +
+    "  <div style=\"height: 305px\">\n" +
+    "  <div uib-carousel active=\"active\" interval=\"myInterval\" no-wrap=\"noWrapSlides\">\n" +
+    "    <div uib-slide ng-repeat=\"slide in slides track by slide.id\" index=\"slide.id\">\n" +
+    "      <img ng-src=\"{{slide.image}}\" style=\"margin:auto;\">\n" +
+    "      <div class=\"carousel-caption\">\n" +
+    "        <h4>Slide {{slide.id}}</h4>\n" +
+    "        <p>{{slide.text}}</p>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "</div> -->\n"
   );
 
   $templateCache.put("anon/login.html",
@@ -185,7 +196,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "                        <li role=\"separator\" class=\"divider\"></li>\n" +
     "                        <li ui-sref-active=\"active\"><a ui-sref=\"user.profile\" ng-show=\"auth.isAuthenticated()\">Profile</a></li>\n" +
     "\n" +
-    "                        <li ui-sref-active=\"active\"><a ui-sref=\"user.Favoris\" ng-show=\"auth.isAuthenticated()\">Favorites</a></li>\n" +
+    "                        <li ui-sref-active=\"active\"><a ui-sref=\"user.favorites\" ng-show=\"auth.isAuthenticated()\">Favorites</a></li>\n" +
     "\n" +
     "                        <li ui-sref-active=\"active\"><a ui-sref=\"user.dashboard\" ng-show=\"auth.isAuthenticated()\">Dashboard</a></li>\n" +
     "\n" +
@@ -280,6 +291,63 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "Dashboard de {{user.email}}\n"
   );
 
+  $templateCache.put("user/favorites.html",
+    "<h1>Hello MOFO</h1>\n" +
+    "<div class=\"container\">\n" +
+    "  <div class=\"row\">\n" +
+    "      <div class=\"box descBeer\">\n" +
+    "          <div class=\"col-lg-12\">\n" +
+    "              <hr>\n" +
+    "              <h2 class=\"intro-text text-center\">\n" +
+    "                  <strong> {{ beer[0].name }} </strong>\n" +
+    "                  <em class=\"pull-right\"> {{ beer[0].abv }} </em>\n" +
+    "              </h2>\n" +
+    "              <hr>\n" +
+    "              <img class=\"img-responsive img-border img-left imgBeer col-lg-2\" ng-src=\"{{ beer[0].image_url }}\" alt=\"\">\n" +
+    "              <hr class=\"visible-xs\">\n" +
+    "              <p class=\"col-lg-10\">{{ beer[0].description }}</p>\n" +
+    "              <p>{{ beer[0].food_pairing }}</p>\n" +
+    "              <button ng-show=\"auth.isAuthenticated()\"> Add to Fav </button>\n" +
+    "          </div>\n" +
+    "      </div>\n" +
+    "  </div>\n" +
+    "  <div class=\"row\">\n" +
+    "      <div class=\"box descBeer\">\n" +
+    "          <div class=\"col-lg-12\">\n" +
+    "              <hr>\n" +
+    "              <h2 class=\"intro-text text-center\">\n" +
+    "                  <strong> {{ beer1[0].name }} </strong>\n" +
+    "                  <em class=\"pull-right\"> {{ beer1[0].abv }} </em>\n" +
+    "              </h2>\n" +
+    "              <hr>\n" +
+    "              <img class=\"img-responsive img-border img-left imgBeer col-lg-2\" ng-src=\"{{ beer1[0].image_url }}\" alt=\"\">\n" +
+    "              <hr class=\"visible-xs\">\n" +
+    "              <p class=\"col-lg-10\">{{ beer1[0].description }}</p>\n" +
+    "              <p>{{ beer1[0].food_pairing }}</p>\n" +
+    "              <button ng-show=\"auth.isAuthenticated()\"> Add to Fav </button>\n" +
+    "          </div>\n" +
+    "      </div>\n" +
+    "  </div>\n" +
+    "  <div class=\"row\">\n" +
+    "      <div class=\"box descBeer\">\n" +
+    "          <div class=\"col-lg-12\">\n" +
+    "              <hr>\n" +
+    "              <h2 class=\"intro-text text-center\">\n" +
+    "                  <strong> {{ beer2[0].name }} </strong>\n" +
+    "                  <em class=\"pull-right\"> {{ beer2[0].abv }} </em>\n" +
+    "              </h2>\n" +
+    "              <hr>\n" +
+    "              <img class=\"img-responsive img-border img-left imgBeer col-lg-2\" ng-src=\"{{ beer2[0].image_url }}\" alt=\"\">\n" +
+    "              <hr class=\"visible-xs\">\n" +
+    "              <p class=\"col-lg-10\">{{ beer2[0].description }}</p>\n" +
+    "              <p>{{ beer2[0].food_pairing }}</p>\n" +
+    "              <button ng-show=\"auth.isAuthenticated()\"> Add to Fav </button>\n" +
+    "          </div>\n" +
+    "      </div>\n" +
+    "  </div>\n" +
+    "</div>\n"
+  );
+
   $templateCache.put("user/navbar.html",
     "<nav class=\"navbar navbar-default\" role=\"navigation\" ng-controller=\"NavbarController\">\n" +
     "    <div class=\"container-fluid\">\n" +
@@ -359,7 +427,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "            <h2 class=\"text-center profilText\">Profil of {{user.email}}</h3>\n" +
     "            <div class=\"input-group profilInput\">\n" +
     "                <span class=\"input-group-addon\" id=\"sizing-addon2\"><i class=\"glyphicon glyphicon-user\"></i></span>\n" +
-    "                <input type=\"text\" class=\"form-control\" placeholder=\"change profil{{user.email}}\" aria-describedby=\"sizing-addon2\">\n" +
+    "                <input type=\"text\" class=\"form-control\" placeholder=\"change email\" aria-describedby=\"sizing-addon2\">\n" +
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
@@ -371,7 +439,6 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "            </div>\n" +
     "            <button type=\"submit\" class=\"btn btn-warning btn-block profilBack\">Validate the change</button>\n" +
     "        </div>\n" +
-    "\n" +
     "    </div>\n" +
     "</div>\n" +
     "\n" +
