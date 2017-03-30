@@ -364,3 +364,7 @@ text-align: center;
 .profilText {
   color: orange;
 }
+.imgMini {
+  height: 50px;
+  width: 50px;
+}

@@ -25,7 +25,25 @@ const userSchema = new mongoose.Schema({
     isAdmin: {
         type: Boolean,
         default: false
-    }
+    },
+    name: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    bday: {
+        type: Date,
+        required: true
+    },
+    avatar: {
+        type: String,
+        default: "img/imageProfil.png"
+    },
+    // favorites: {
+    //   beer: [
+    //     type: String
+    //   ]
+    // }
 });
 
 userSchema.methods.comparePassword = function(pwd, cb) {
@@ -142,7 +160,6 @@ export default class User {
             }
         });
     }
-
     delete(req, res) {
         model.findByIdAndRemove(req.params.id, (err) => {
             if (err) {
