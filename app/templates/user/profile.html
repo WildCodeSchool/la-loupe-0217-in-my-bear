@@ -44,8 +44,8 @@
     </div>
     <div class="row" id="profilChange">
         <div class="col-lg-offset-2 col-lg-8">
-            <h2 class="text-center profilText">Profil of {{user.email}}</h2>
-            <h2 class="text-center profilText">Birthdate: {{user.bday}}</h2>
+            <h2 class="text-center profilText">Profil of {{user.name}}</h2>
+            <h2 class="text-center profilText">Birthdate: {{user.bday | date : fullDate}}</h2>
             <div class="input-group profilInput">
                 <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-user"></i></span>
                 <input type="text" class="form-control" placeholder="Change email" aria-describedby="sizing-addon2">
@@ -62,12 +62,3 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-<!-- Profile de {{user.email}} -->
