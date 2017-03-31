@@ -12,6 +12,10 @@ angular.module('app')
             },
             delete: function(id) {
                 return $http.delete('/users/' + id);
+            },
+            addBeer: function(id, beerId) {
+              console.log(id, beerId);
+                return $http.put('/users/newbeer/' + id, {beer: beerId});
             }
         };
     });

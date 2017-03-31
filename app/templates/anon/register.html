@@ -1,24 +1,24 @@
 <div class="row">
     <div class="col-xs-6 col-xs-offset-3">
-        <form class="form" name="loginForm" novalidate ng-submit="register()">
+        <form class="form" name="loginForm" novalidate ng-submit="register()" id="registerManage">
             <div ng-repeat="error in errors">{{error.error}}</div>
-            <div class="input-group">
+            <div class="input-group" id="registerSpace">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                 <input id="password" type="text" class="form-control" ng-model="user.name" required placeholder="Pseudo">
             </div>
-            <div class="input-group">
+            <div class="input-group" id="registerSpace">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                 <input id="email" type="email" class="form-control" ng-model="user.email" required placeholder="Email Address">
             </div>
-            <div class="input-group">
+            <div class="input-group" id="registerSpace">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                 <input id="password" type="date" class="form-control" ng-model="user.bday" required placeholder="Birthdate">
             </div>
-            <div class="input-group">
+            <div class="input-group" id="registerSpace">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                 <input id="password" type="password" class="form-control" ng-model="user.password" required placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-primary btn-block registerBack">Register</button>
+            <button type="submit" class="btn btn-warning btn-block registerBack">Register</button>
         </form>
     </div>
 </div>

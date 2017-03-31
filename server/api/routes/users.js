@@ -24,6 +24,10 @@ module.exports = (app) => {
 
     router.delete('/:id', Auth.isAdministrator, user.delete);
 
+    router.put('/newbeer/:id', user.addBeer)
+
     app.use('/users', router);
+
+
 
 };

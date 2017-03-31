@@ -39,11 +39,17 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: "img/imageProfil.png"
     },
-    // favorites: {
-    //   beer: [
-    //     type: String
-    //   ]
-    // }
+    favourites: [{
+            beerId: {
+                type: String
+            },
+            addedDate: {
+                type: Date,
+                default: Date.now
+            }
+        }
+
+    ]
 });
 
 userSchema.methods.comparePassword = function(pwd, cb) {
@@ -160,6 +166,18 @@ export default class User {
             }
         });
     }
+    addBeer(req, res) {
+      let beer = req.body;
+        model.findOneAndUpdate(
+            {_id: req.params.id}, {$push: {favourites: {beerId: req.body.beer}}},(err, user) => {
+              if (err || !user) {
+                  res.status("nop").send(err.message);
+              } else {
+                  res.json(user);
+              }
+          });
+      }
+
     delete(req, res) {
         model.findByIdAndRemove(req.params.id, (err) => {
             if (err) {
