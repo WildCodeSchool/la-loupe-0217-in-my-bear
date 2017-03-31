@@ -24,7 +24,7 @@
             <ul class="nav navbar-nav navbar-right" id="navbarLogo">
                 <li ui-sref-active="active">
                     <a ui-sref="user.profile">
-                        <img class="img img-responsive" src="img/imgProfil.png">
+                        <img class="img img-responsive imgMini" src="{{ user.avatar }}">
                     </a>
                 </li>
             </ul>
@@ -35,6 +35,8 @@
                     <ul class="dropdown-menu">
                         <li ui-sref-active="active"><a ui-sref="anon.home">Home</a></li>
                         <li role="separator" class="divider"></li>
+                        <li ui-sref-active="active"><a ui-sref="anon.search" ng-show="auth.isAuthenticated()">Search</a></li>
+
                         <li ui-sref-active="active"><a ui-sref="user.profile" ng-show="auth.isAuthenticated()">Profile</a></li>
 
                         <li ui-sref-active="active"><a ui-sref="user.favorites" ng-show="auth.isAuthenticated()">Favorites</a></li>

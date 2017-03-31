@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-offset-5 col-lg-2 col-xs-offset-3 col-xs-6 profilPadding">
-            <a href="" data-toggle="modal" data-target="#myModal" class=""><img src="img/imageProfil.png" class="img-responsive img-circle" alt="..."></a>
+            <a href="" data-toggle="modal" data-target="#myModal" class=""><img src="{{ user.avatar }}" class="img-responsive img-circle" alt="..."></a>
         </div>
         <!-- Modal -->
         <div class="modal fade modalHeight" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -44,10 +44,11 @@
     </div>
     <div class="row" id="profilChange">
         <div class="col-lg-offset-2 col-lg-8">
-            <h2 class="text-center profilText">Profil of {{user.email}}</h3>
+            <h2 class="text-center profilText">Profil of {{user.name}}</h2>
+            <h2 class="text-center profilText">Birthdate: {{user.bday | date : fullDate}}</h2>
             <div class="input-group profilInput">
                 <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-user"></i></span>
-                <input type="text" class="form-control" placeholder="change email" aria-describedby="sizing-addon2">
+                <input type="text" class="form-control" placeholder="Change email" aria-describedby="sizing-addon2">
             </div>
         </div>
     </div>
@@ -61,12 +62,3 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-<!-- Profile de {{user.email}} -->
