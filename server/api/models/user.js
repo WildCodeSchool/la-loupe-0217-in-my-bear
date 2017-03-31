@@ -48,7 +48,6 @@ const userSchema = new mongoose.Schema({
                 default: Date.now
             }
         }
-
     ]
 });
 
@@ -167,7 +166,6 @@ export default class User {
         });
     }
     addBeer(req, res) {
-      let beer = req.body;
         model.findOneAndUpdate(
             {_id: req.params.id}, {$push: {favourites: {beerId: req.body.beer}}},(err, user) => {
               if (err || !user) {
