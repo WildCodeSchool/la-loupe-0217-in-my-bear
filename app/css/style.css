@@ -385,3 +385,8 @@ text-align: center;
     column-count: 5;
   }
 }
+.idUserFav {
+  text-align: center;
+  color: orange;
+  text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+}
