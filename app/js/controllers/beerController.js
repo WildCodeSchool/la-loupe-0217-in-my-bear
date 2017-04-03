@@ -1,14 +1,12 @@
 
 angular.module('app')
     .controller('BeerController', function($scope, BeerService, UserService, CurrentUser) {
-      console.log(CurrentUser.user()._id);
       $scope.afficher = function() {
         $scope.beers = [];
 
-        for (let i = 0; i < 3; i++) {
+        for (var i = 0; i < 3; i++) {
           BeerService.random().then(function(res) {
             $scope.beers.push(res.data[0]);
-            console.log($scope.beers);
           });
         }
       };
@@ -16,6 +14,11 @@ angular.module('app')
       $scope.addBeer = function (beerId) {
         UserService.addBeer(CurrentUser.user()._id, beerId).then(function(res) {
           // cool
+        });
+      };
+      $scope.afficher();
+      $scope.delBeer = function (beerId) {
+        UserService.delBeer(CurrentUser.user()._id, beerId).then(function(res) {
         });
       };
     });

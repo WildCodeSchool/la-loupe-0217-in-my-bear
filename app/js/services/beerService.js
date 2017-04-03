@@ -5,7 +5,6 @@ angular.module('app')
                     return $http.get('https://api.punkapi.com/v2/beers/random');
                 },
                 getById: function (beerId) {
-                  console.log(beerId);
                   return $http.get('https://api.punkapi.com/v2/beers/' + beerId);
                 }
             };

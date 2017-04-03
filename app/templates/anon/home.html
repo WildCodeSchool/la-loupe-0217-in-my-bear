@@ -45,7 +45,7 @@
               <hr>
               <h2 class="intro-text text-center">
                   <strong> {{ beer.name }} </strong>
-                  <em class="pull-right"> {{ beer.abv }} </em>
+                  <em class="pull-right"> {{ beer.abv }}° </em>
               </h2>
               <hr>
               <img class="img-responsive img-border img-left imgBeer col-lg-2" ng-src="{{ beer.image_url }}" alt="">
@@ -54,16 +54,3 @@
               <button ng-click="addBeer(beer.id)"> Add to Fav </button>
           </div>
   </div>
-
-  <!--
-  <div style="height: 305px">
-  <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-    <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-      <img ng-src="{{slide.image}}" style="margin:auto;">
-      <div class="carousel-caption">
-        <h4>Slide {{slide.id}}</h4>
-        <p>{{slide.text}}</p>
-      </div>
-    </div>
-  </div>
-</div> -->

@@ -6,7 +6,6 @@ angular.module('app')
           function (res) {
             $scope.beer = res.data;
           }, function error (err) {
-            console.log(err);
           });
       };
       $scope.expanded = false;

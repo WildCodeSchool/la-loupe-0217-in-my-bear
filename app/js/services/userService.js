@@ -14,8 +14,10 @@ angular.module('app')
                 return $http.delete('/users/' + id);
             },
             addBeer: function(id, beerId) {
-              console.log(id, beerId);
                 return $http.put('/users/newbeer/' + id, {beer: beerId});
+            },
+            delBeer: function(id, beerId) {
+                return $http.put('/users/delbeer', {user: id, beer: beerId});
             }
         };
     });
