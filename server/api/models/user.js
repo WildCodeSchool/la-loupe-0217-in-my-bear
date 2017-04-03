@@ -166,16 +166,36 @@ export default class User {
         });
     }
     addBeer(req, res) {
-        model.findOneAndUpdate(
-            {_id: req.params.id}, {$push: {favourites: {beerId: req.body.beer}}},(err, user) => {
+        model.findOneAndUpdate({
+              _id: req.params.id
+            }, {
+              $push: {
+                favourites: {
+                  beerId: req.body.beer
+                }}},
+                (err, user) => {
               if (err || !user) {
-                  res.status("nop").send(err.message);
+                  res.status(500).send(err.message);
               } else {
                   res.json(user);
               }
           });
       }
-
+      delBeer(req, res) {
+          model.findOneAndUpdate({
+                _id: req.body.user,
+              }, {
+                $pull: {
+                  favourites: {beerId: req.body.beer
+                  }}},
+                  (err, user) => {
+                if (err || !user) {
+                    res.status(500).send(err.message);
+                } else {
+                    res.json(user);
+                }
+            });
+        }
     delete(req, res) {
         model.findByIdAndRemove(req.params.id, (err) => {
             if (err) {
