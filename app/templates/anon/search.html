@@ -66,8 +66,26 @@
                 </h2>
                 <hr>
                 <p class=food_pairing></p>
-                <a class="btn btn-success">Comments</a>
+                <a class="btn btn-success" data-toggle="modal" data-target="#myModalComment">Comments</a>
             </div>
+        </div>
+        <div class="container">
+          <div class="modal fade" id="myModalComment" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" ng-click="addComment(beer.id)">Comments</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Some comments.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+          </div>
         </div>
     </div>
 </div>
