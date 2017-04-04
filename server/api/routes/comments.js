@@ -12,7 +12,7 @@ module.exports = (app) => {
 
   var comment = new Comment();
 
-  router.put('/addcomment/:id', Auth.hasAuthorization, comment.addComment);
+  router.post('/addcomment', Auth.hasAuthorization, comment.addComment);
 
   router.put('/delcomment', Auth.hasAuthorization, comment.delComment);
 

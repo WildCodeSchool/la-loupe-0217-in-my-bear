@@ -12,7 +12,6 @@ angular.module('app')
       $scope.afficher();
       $scope.addComment = function (commentId) {
         UserService.addComment(CurrentUser.user()._id, beerId, commentId).then(function(res) {
-          // cool
         });
       };
       $scope.afficher();

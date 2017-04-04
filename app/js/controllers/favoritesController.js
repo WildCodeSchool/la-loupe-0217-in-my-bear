@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('FavoritesController', function($scope, CurrentUser, UserService, BeerService) {
+    .controller('FavoritesController', function($scope, CurrentUser, UserService, BeerService, CommentService) {
       $scope.user = CurrentUser.user();
       $scope.favourites = [];
       UserService.getOne($scope.user._id).then(function (res) {
@@ -11,6 +11,19 @@ angular.module('app')
       });
       $scope.delBeer = function (beerId) {
         UserService.delBeer($scope.user._id, beerId).then(function(res) {
+        });
+      };
+      $scope.addComment = function (beerId, beerName, content) {
+        console.log(beerName);
+        var comment = {
+          beerId: beerId,
+          author: $scope.user._id,
+          title: beerName,
+          body: content
+        };
+        CommentService.addComment(comment).then(function(res) {
+          // cool
+          console.log('loup');
         });
       };
     });

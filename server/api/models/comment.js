@@ -1,18 +1,25 @@
-import jsonwebtoken from 'jsonwebtoken';
 import mongoose from 'mongoose';
-import bcrypt from 'bcrypt';
-import token from '../token.js';
+import User from './user.js';
 
 const commentSchema = new mongoose.Schema({
 
-    beerId: {type: mongoose.Schema.Types.ObjectId},
-    author: {type: mongoose.Schema.Types.ObjectId},
-    title : {
-      type: mongoose.Schema.Types.ObjectId,
-      index: true
+    beerId: {
+        type: String
     },
-    date : {type: Date},
-    body : {type: String}
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    title: {
+        type: String,
+    },
+    date: {
+        type: Date,
+        default: new Date()
+    },
+    body: {
+        type: String
+    }
 
 });
 
@@ -21,46 +28,44 @@ let model = mongoose.model('Comment', commentSchema);
 
 export default class Comment {
 
-  findAll(req, res) {
-      model.find({},
-        (err, comments) => {
-          if (err || !comments) {
-              res.sendStatus(403);
-          } else {
-              res.json(comments);
-          }
-      });
-  }
-
-  addComment(req, res) {
-      model.findOneAndUpdate({
-            _id: req.params.id
-          }, {
-            $push: {
-              comments: {
-                comentId: req.body.beer
-              }}},
-              (err, comments) => {
-            if (err || !comments) {
-                res.status(500).send(err.message);
-            } else {
-                res.json(comments);
-            }
-        });
+    findAll(req, res) {
+        model.find({},
+            (err, comments) => {
+                if (err || !comments) {
+                    res.sendStatus(403);
+                } else {
+                    res.json(comments);
+                }
+            });
     }
+
+    addComment(req, res) {
+        model.create(req.body,
+            (err, comment) => {
+                if (err) {
+                    res.status(500).send(err.message);
+                } else {
+                    res.json(comment);
+                }
+            });
+    }
+
     delComment(req, res) {
         model.findOneAndUpdate({
-              _id: req.body.comments,
+                _id: req.body.comments,
             }, {
-              $pull: {
-                comments: {commentId: req.body.beer
-                }}},
-                (err, comments) => {
-              if (err || !comments) {
-                  res.status(500).send(err.message);
-              } else {
-                  res.json(comments);
-              }
-          });
-      }
+                $pull: {
+                    comments: {
+                        commentId: req.body.beer
+                    }
+                }
+            },
+            (err, comments) => {
+                if (err || !comments) {
+                    res.status(500).send(err.message);
+                } else {
+                    res.json(comments);
+                }
+            });
+    }
 }

@@ -1,11 +1,11 @@
 angular.module('app')
     .service('CommentService', function($http) {
         return {
-            getAll: function() {
+            getAll: function () {
                 return $http.get('/comments');
             },
-            addComment: function(id, commentId) {
-                return $http.put('/comments/addcomment/' + id, {beer: beerId, comment: commentId});
+            addComment: function(comment) {
+                return $http.post('/comments/addcomment/', comment);
             },
             delComment: function(id, commentId) {
                 return $http.put('/comments/delcomment', {user: id, beer: beerId, comment: commentId});
