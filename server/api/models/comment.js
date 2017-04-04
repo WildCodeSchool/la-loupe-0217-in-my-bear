@@ -13,7 +13,7 @@ const commentSchema = new mongoose.Schema({
     },
     date : {type: Date},
     body : {type: String}
-    
+
 });
 
 
@@ -40,29 +40,27 @@ export default class Comment {
               favourites: {
                 beerId: req.body.beer
               }}},
-              (err, user) => {
-            if (err || !user) {
+              (err, comments) => {
+            if (err || !comments) {
                 res.status(500).send(err.message);
             } else {
-                res.json(user);
+                res.json(comments);
             }
         });
     }
     delComment(req, res) {
         model.findOneAndUpdate({
-              _id: req.body.user,
+              _id: req.body.comments,
             }, {
               $pull: {
                 favourites: {beerId: req.body.beer
                 }}},
-                (err, user) => {
-              if (err || !user) {
+                (err, comments) => {
+              if (err || !comments) {
                   res.status(500).send(err.message);
               } else {
-                  res.json(user);
+                  res.json(comments);
               }
           });
       }
-
-
 }
