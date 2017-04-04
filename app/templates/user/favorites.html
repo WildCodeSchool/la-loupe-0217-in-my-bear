@@ -1,61 +1,78 @@
-
 <div class="container">
-  <h1 class="idUserFav"> {{ user.name }} favorite's beer </h1>
-  <div ng-repeat="beer in favourites" class="card box descBeer">
-    <img class="img-fluid imgBeer" ng-src="{{ beer.image_url }}" alt="Beer Image">
-    <div class="card-block">
-      <h2 class="card-title">{{ beer.name }}
-        <em class="pull-right"> {{ beer.abv }}° </em>
+    <h1 class="idUserFav"> {{ user.name }} favorite's beer </h1>
+    <div ng-repeat="beer in favourites" class="card box descBeer">
+        <img class="img-fluid imgBeer" ng-src="{{ beer.image_url }}" alt="Beer Image">
+        <div class="card-block">
+            <h2 class="card-title">{{ beer.name }}
+        <em class="pull-right">Alcohol By Volume : {{ beer.abv }}° </em>
       </h2>
-      <p class="card-text">{{ beer.description }}</p>
-      <a ng-click="delBeer(beer.id)" class="btn btn-danger">Delete Fav</a>
-      <a class="btn btn-primary" data-toggle="modal" data-target="#myModal">Read more</a>
-    </div>
-  </div>
-</div>
+            <p class="card-text">{{ beer.description }}</p>
+            <a class="btn btn-primary" data-toggle="modal" data-target="{{ '#' + beer.id}}">Read more</a>
+            <a ng-click="delBeer(beer.id)" class="btn btn-danger">Delete Fav</a>
+            <a class="btn btn-success pull-right" data-toggle="modal" data-target="{{'#comment' + beer.id}}">Comments</a>
+        </div>
 
-<div class="container">
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-      <div ng-repeat="beer in favourites" class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">{{ beer.name }}
-            <em class="pull-right"> {{ beer.abv }}° </em>
-          </h4>
-        </div>
-        <div class="modal-body descriptionBeer">
-          <h5>Descritpion : </h5><p>{{ beer.description }}</p>
-          <p>Tagline : {{ beer.tagline }}</p>
-          <p>First brewed : {{ beer.first_brewed }}</p>
-          <p ng-repeat="malt in beer.ingredients.malt">Malt name: {{ malt.name }}, Value: {{malt.amount.value}}, Unit: {{malt.amount.unit}} </p>
-          <p ng-repeat="hops in beer.ingredients.hops">Hops name: {{ hops.name }}, Value: {{hops.amount.value}}, Unit: {{hops.amount.unit}}</p>
-          <p>Yeast : {{ beer.ingredients.yeast }}</p>
-          <p>Brewer tips : {{ beer.brewers_tips }}
-          <h4>Food pairing :</h4>
-          <p ng-repeat="pairing in beer.food_pairing">{{pairing}}</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+        <!-- Modal Informations -->
+      <div class="container">
+        <div class="modal fade" id="{{beer.id}}" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">{{ beer.name }}
+              <em class="pull-right">Alcohol By Volume : {{ beer.abv }}° </em>
+            </h4>
+                </div>
+                <div class="modal-body descriptionBeer">
+                    <h4>Descritpion : </h4>
+                    <p>{{ beer.description }}</p>
+                    <h4>Tagline : </h4>
+                    <p>{{ beer.tagline }}</p>
+                    <h4>First brewed : </h4>
+                    <p>{{ beer.first_brewed }}</p>
+                    <p ng-repeat="malt in beer.ingredients.malt">Malt name: {{ malt.name }}, Value: {{malt.amount.value}}, Unit: {{malt.amount.unit}} </p>
+                    <p ng-repeat="hops in beer.ingredients.hops">Hops name: {{ hops.name }}, Value: {{hops.amount.value}}, Unit: {{hops.amount.unit}}</p>
+                    <h4>Yeast : </h4>
+                    <p>{{ beer.ingredients.yeast }}</p>
+                    <h4>Brewer tips : </h4>
+                    <p>{{ beer.brewers_tips }}
+                        <h4>Food pairing :</h4>
+                        <p ng-repeat="pairing in beer.food_pairing">{{pairing}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<!-- <div class="container">
-  <div ng-repeat="beer in favourites" class="row box descBeer">
-    <div class="col-lg-12 responLarge">
-        <hr>
-        <h2 class="intro-text text-center">
-            <strong> {{ beer.name }} </strong>
-            <em class="pull-right"> {{ beer.abv }} </em>
-        </h2>
-        <hr>
-        <img class="img-responsive img-border img-left imgBeer col-lg-2" ng-src="{{ beer.image_url }}" alt="">
-        <hr class="visible-xs">
-        <p>{{ beer.description }}</p>
-        <button ng-click="delBeer(beer.id)"> Delete Fav </button>
+        <!-- Modal Commentaires -->
+
+        <div class="modal fade" id="{{'comment' + beer.id}}" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Comments</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Some comments.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <form methodlo="post">
+                            <p>
+                                <label for="author"><strong>Pseudo :</strong></label>
+                                <input type="text" name="author" id="author" value="{{ user.name }}" /><br/>
+                                <label for="comment"><strong>Comment :</strong></label><br/>
+                                <textarea type="text" name="comment" ng-model="beer.content" rows="8" cols="45" placeholder="Your comment..."></textarea><br/>
+                                <a class="btn btn-success" ng-click="addComment(beer.id, beer.name, beer.content)">Post</a>
+                            </p>
+                        </form>
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div> -->
+</div>

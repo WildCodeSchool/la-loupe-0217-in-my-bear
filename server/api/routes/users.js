@@ -22,7 +22,6 @@ module.exports = (app) => {
 
     router.post('/', user.create);
 
-
     router.put('/newbeer/:id', Auth.hasAuthorization, user.addBeer);
 
     router.put('/:id', Auth.isAdministrator, user.update);

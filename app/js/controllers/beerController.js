@@ -13,7 +13,6 @@ angular.module('app')
       $scope.afficher();
       $scope.addBeer = function (beerId) {
         UserService.addBeer(CurrentUser.user()._id, beerId).then(function(res) {
-          // cool
         });
       };
       $scope.afficher();
