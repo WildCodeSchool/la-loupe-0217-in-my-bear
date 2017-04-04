@@ -24,8 +24,8 @@
             <em class="pull-right"> {{ beer.abv }}° </em>
           </h4>
         </div>
-        <div class="modal-body">
-          <p>Descritpion : {{ beer.description }}</p>
+        <div class="modal-body descriptionBeer">
+          <h5>Descritpion : </h5><p>{{ beer.description }}</p>
           <p>Tagline : {{ beer.tagline }}</p>
           <p>First brewed : {{ beer.first_brewed }}</p>
           <p ng-repeat="malt in beer.ingredients.malt">Malt name: {{ malt.name }}, Value: {{malt.amount.value}}, Unit: {{malt.amount.unit}} </p>
@@ -36,7 +36,7 @@
           <p ng-repeat="pairing in beer.food_pairing">{{pairing}}</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
