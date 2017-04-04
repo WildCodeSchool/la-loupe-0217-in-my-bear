@@ -37,8 +37,8 @@ export default class Comment {
             _id: req.params.id
           }, {
             $push: {
-              favourites: {
-                beerId: req.body.beer
+              comment: {
+                comentId: req.body.beer
               }}},
               (err, comments) => {
             if (err || !comments) {

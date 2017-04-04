@@ -4,11 +4,11 @@ angular.module('app')
             getAll: function() {
                 return $http.get('/comments');
             },
-            addComment: function(id, beerId) {
+            addComment: function(id, commentId) {
                 return $http.put('/comments/addcomment/' + id, {beer: beerId, comment: commentId});
             },
-            delComment: function(id, beerId) {
-                return $http.put('/comments/delcomment', {user: id, beer: beerId});
+            delComment: function(id, commentId) {
+                return $http.put('/comments/delcomment', {user: id, beer: beerId, comment: commentId});
             }
         };
     });

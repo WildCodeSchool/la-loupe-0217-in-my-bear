@@ -55,7 +55,17 @@
             <p>Some comments.</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <form methodlo
+            ="post">
+                <p>
+                    <label for="author"><strong>Pseudo :</strong></label>
+                    <input type="text" name = "author" id="author" value="{{ user.name }}"/><br/>
+                    <label for="comment"><strong>Comment :</strong></label><br/>
+                    <textarea type="text" name="comment" id="comment" rows="8" cols="45" placeholder="Your comment..."></textarea><br/>
+                    <a class="btn btn-success" ng-click="addComment(comment.id)">Post</a>
+                </p>
+            </form>
+            <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
