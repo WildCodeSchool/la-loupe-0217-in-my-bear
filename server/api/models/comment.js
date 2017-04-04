@@ -37,7 +37,7 @@ export default class Comment {
             _id: req.params.id
           }, {
             $push: {
-              comment: {
+              comments: {
                 comentId: req.body.beer
               }}},
               (err, comments) => {
@@ -53,7 +53,7 @@ export default class Comment {
               _id: req.body.comments,
             }, {
               $pull: {
-                favourites: {beerId: req.body.beer
+                comments: {commentId: req.body.beer
                 }}},
                 (err, comments) => {
               if (err || !comments) {
