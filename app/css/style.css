@@ -333,6 +333,7 @@ text-align: center;
 
 .profilModal {
   background-color: rgba(139, 38, 21, 0.3);
+
 }
 
 .profilImage img {
@@ -392,4 +393,9 @@ text-align: center;
 }
 span {
   text-decoration: underline;
+}
+
+.avatarHeigth {
+  height: 50px;
+  width: 50px;
 }

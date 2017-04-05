@@ -18,6 +18,7 @@ angular.module('app')
             },
             delBeer: function(id, beerId) {
                 return $http.put('/users/delbeer', {user: id, beer: beerId});
-            }
+            },
+
         };
     });
