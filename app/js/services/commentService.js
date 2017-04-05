@@ -1,8 +1,8 @@
 angular.module('app')
     .service('CommentService', function($http) {
         return {
-            getAll: function () {
-                return $http.get('/comments');
+            getAllByBeerId: function (beerId) {
+                return $http.get('/comments/forBeer/' + beerId);
             },
             addComment: function(comment) {
                 return $http.post('/comments/addcomment/', comment);

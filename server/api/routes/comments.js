@@ -12,6 +12,8 @@ module.exports = (app) => {
 
   var comment = new Comment();
 
+  router.get('/forBeer/:beerId', Auth.hasAuthorization, comment.findAllForBeer);
+
   router.post('/addcomment', Auth.hasAuthorization, comment.addComment);
 
   router.put('/delcomment', Auth.hasAuthorization, comment.delComment);

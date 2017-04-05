@@ -9,12 +9,19 @@ angular.module('app')
           });
         });
       });
+      $scope.comments = [];
+      $scope.getComments = function(beerId) {
+        CommentService.getAllByBeerId(beerId).then(function(res) {
+          $scope.comments = res.data;
+        }, function(err) {
+          console.error('err comments beer', err);
+        });
+      };
       $scope.delBeer = function (beerId) {
         UserService.delBeer($scope.user._id, beerId).then(function(res) {
         });
       };
       $scope.addComment = function (beerId, beerName, content) {
-        console.log(beerName);
         var comment = {
           beerId: beerId,
           author: $scope.user._id,
@@ -22,8 +29,6 @@ angular.module('app')
           body: content
         };
         CommentService.addComment(comment).then(function(res) {
-          // cool
-          console.log('loup');
         });
       };
     });

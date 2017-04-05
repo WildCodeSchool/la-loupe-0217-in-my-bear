@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('SearchController', function($scope, $http) {
+    .controller('SearchController', function($scope, $http, CurrentUser, UserService, BeerService,  CommentService) {
       $scope.query = '';
       $scope.addBeer = function () {
         $http.get("https://api.punkapi.com/v2/beers?beer_name="+ $scope.query).then(
@@ -7,6 +7,14 @@ angular.module('app')
             $scope.beer = res.data;
           }, function error (err) {
           });
+      };
+      $scope.comments = [];
+      $scope.getComments = function(beerId) {
+        CommentService.getAllByBeerId(beerId).then(function(res) {
+          $scope.comments = res.data;
+        }, function(err) {
+          console.error('err comments beer', err);
+        });
       };
       $scope.expanded = false;
 

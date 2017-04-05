@@ -9,7 +9,7 @@
             <p class="card-text">{{ beer.description }}</p>
             <a class="btn btn-primary" data-toggle="modal" data-target="{{ '#' + beer.id}}">Read more</a>
             <a ng-click="delBeer(beer.id)" class="btn btn-danger">Delete Fav</a>
-            <a class="btn btn-success pull-right" data-toggle="modal" data-target="{{'#comment' + beer.id}}">Comments</a>
+            <a class="btn btn-success pull-right" data-toggle="modal" data-target="{{'#comment' + beer.id}}" ng-click="getComments(beer.id)">Comments</a>
         </div>
 
         <!-- Modal Informations -->
@@ -52,12 +52,14 @@
         <div class="modal fade" id="{{'comment' + beer.id}}" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div ng-repeat="comment in comments" class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Comments</h4>
+                        <h4 class="modal-title">Comments of {{ comment.title }} by {{ comment.author.name }},</h4><br>
+                        <h6>On {{ comment.date }}</h6>
+                        <p>{{ comment.body }}</p>
                     </div>
                     <div class="modal-body">
-                        <p>Some comments.</p>
+                        <p></p>
                     </div>
                     <div class="modal-footer">
                         <form methodlo="post">
@@ -66,6 +68,13 @@
                                 <input type="text" name="author" id="author" value="{{ user.name }}" /><br/>
                                 <label for="comment"><strong>Comment :</strong></label><br/>
                                 <textarea type="text" name="comment" ng-model="beer.content" rows="8" cols="45" placeholder="Your comment..."></textarea><br/>
+                                <select name="Rate">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                </select>
                                 <a class="btn btn-success" ng-click="addComment(beer.id, beer.name, beer.content)">Post</a>
                             </p>
                         </form>

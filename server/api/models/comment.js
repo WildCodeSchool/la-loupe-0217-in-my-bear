@@ -20,7 +20,6 @@ const commentSchema = new mongoose.Schema({
     body: {
         type: String
     }
-
 });
 
 
@@ -37,6 +36,21 @@ export default class Comment {
                     res.json(comments);
                 }
             });
+    }
+
+    findAllForBeer(req, res) {
+        model.find({
+          beerId: req.params.beerId
+        })
+        .populate('author', 'name')
+        .exec(
+          (err, comments) => {
+              if (err || !comments) {
+                  res.sendStatus(403);
+              } else {
+                  res.json(comments);
+              }
+          });
     }
 
     addComment(req, res) {
