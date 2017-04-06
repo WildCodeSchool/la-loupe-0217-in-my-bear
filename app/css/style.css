@@ -402,3 +402,15 @@ span {
   height: 50px;
   width: 50px;
 }
+.heightFooter {
+  height: 20em;
+}
+.heightFooterLogin {
+  height: 45em;
+}
+.heightFooterRegister {
+  height: 45em;
+}
+.heightFooterSearch {
+  height: 50em;
+}
