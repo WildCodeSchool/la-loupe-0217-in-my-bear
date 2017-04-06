@@ -5,11 +5,13 @@ angular.module('app')
         $http.get("https://api.punkapi.com/v2/beers?beer_name="+ $scope.query).then(
           function (res) {
             $scope.beer = res.data;
+            getComments(res.data[0].id);
           }, function error (err) {
           });
       };
+      $scope.displayBlock = false;
       $scope.comments = [];
-      $scope.getComments = function(beerId) {
+      var getComments = function(beerId) {
         CommentService.getAllByBeerId(beerId).then(function(res) {
           $scope.comments = res.data;
         }, function(err) {
