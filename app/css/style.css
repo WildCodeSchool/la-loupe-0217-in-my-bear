@@ -2,6 +2,9 @@
 .imgBeer {
   width: 65px;
 }
+.heightFooter {
+  height: 1000px;
+}
 .descriptionBeer {
   border: 1px solid #CCCCCC;
   height: auto;
@@ -351,9 +354,9 @@ text-align: center;
   margin-top: 200px;
 }
 
-.profilInput {
+/*.profilInput {
   padding-bottom: 30px;
-}
+}*/
 
 .profilBack {
   background-color: rgba(0, 0, 0, 0.5);
