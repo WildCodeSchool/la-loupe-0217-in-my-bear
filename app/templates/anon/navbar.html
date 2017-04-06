@@ -1,60 +1,63 @@
-<nav class="navbar navbar-link navbar-fixed-top" role="navigation" ng-controller="NavbarController">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="NavbarController">
     <div class="container-fluid navbarBack">
 
 
-        <!-- System of icon bar -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle navbar-left" data-toggle="collapse" data-target="#navbar">
+
+
+            <!-- System of icon bar -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed navbar-left" data-toggle="collapse" data-target="#navbar">
                   <span class="sr-only">Toggle navigation</span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
             </button>
 
-            <!-- Title in navbar -->
-            <a ui-sref="anon.home"><h1 class="navbar-text" id="navText">In My Bear</h1></a>
+                <!-- Title in navbar -->
+                <a ui-sref="anon.home"><h1 class="navbar-text" id="navText">In My Bear</h1></a>
 
 
-        </div>
+            </div>
 
-        <!-- Dropdowns in navbar right-->
-        <div class="collapse navbar-collapse navbar-right" id="navbar">
+            <!-- Dropdowns in navbar right-->
+            <div class="collapse navbar-collapse navbar-right" id="navbar">
 
-            <!-- Logo in navbar for profile and avatard -->
-            <ul class="nav navbar-nav navbar-right" id="navbarLogo">
-                <li ui-sref-active="active">
-                    <a ui-sref="user.profile">
-                        <img class="img img-responsive imgMini" src="{{ user.avatar }}">
-                    </a>
-                </li>
-            </ul>
+                <!-- Logo in navbar for profile and avatard -->
+                <ul class="nav navbar-nav navbar-right" id="navbarLogo">
+                    <li ui-sref-active="active">
+                        <a ui-sref="user.profile">
+                            <img ng-show="auth.isAuthenticated()" class="img img-responsive imgMini" src="{{ user.avatar }}">
+                        </a>
+                    </li>
+                </ul>
 
-            <ul class="nav navbar-link navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="navDrop">Menu<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li ui-sref-active="active"><a ui-sref="anon.home">Home</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li ui-sref-active="active"><a ui-sref="anon.search" ng-show="auth.isAuthenticated()">Search</a></li>
+                <ul class="nav navbar-link navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="navDrop">Menu<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li ui-sref-active="active"><a ui-sref="anon.home">Home</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li ui-sref-active="active"><a ui-sref="anon.search" ng-show="auth.isAuthenticated()">Search</a></li>
 
-                        <li ui-sref-active="active"><a ui-sref="user.profile" ng-show="auth.isAuthenticated()">Profile</a></li>
+                            <li ui-sref-active="active"><a ui-sref="user.profile" ng-show="auth.isAuthenticated()">Profile</a></li>
 
-                        <li ui-sref-active="active"><a ui-sref="user.favorites" ng-show="auth.isAuthenticated()">Favorites</a></li>
+                            <li ui-sref-active="active"><a ui-sref="user.favorites" ng-show="auth.isAuthenticated()">Favorites</a></li>
 
-                        <li ui-sref-active="active"><a ui-sref="user.dashboard" ng-show="auth.isAuthenticated()">Dashboard</a></li>
+                            <li ui-sref-active="active"><a ui-sref="user.dashboard" ng-show="auth.isAuthenticated()">Dashboard</a></li>
 
-                        <li><a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#'>Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
+                            <li><a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#'>Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
 
-            <!-- System for login and register -->
-            <ul class="nav navbar-nav navbar-left" id="navbarLogin1">
-                <li ui-sref-active="active"><a ui-sref="anon.search" ng-hide="auth.isAuthenticated()" id="navbarLogin2">Search</a></li>
-                <li ui-sref-active="active"><a ui-sref="anon.login" ng-hide="auth.isAuthenticated()" id="navbarLogin2">Login</a></li>
-                <li ui-sref-active="active"><a ui-sref="anon.register" ng-hide="auth.isAuthenticated()" id="navbarLogin2">Register</a></li>
-            </ul>
+                <!-- System for login and register -->
+                <ul class="nav navbar-nav navbar-left" id="navbarLogin1">
+                    <li ui-sref-active="active"><a ui-sref="anon.search" ng-hide="auth.isAuthenticated()" id="navbarLogin2">Search</a></li>
+                    <li ui-sref-active="active"><a ui-sref="anon.login" ng-hide="auth.isAuthenticated()" id="navbarLogin2">Login</a></li>
+                    <li ui-sref-active="active"><a ui-sref="anon.register" ng-hide="auth.isAuthenticated()" id="navbarLogin2">Register</a></li>
+                </ul>
 
-        </div>
+            </div>
+
     </div>
 </nav>

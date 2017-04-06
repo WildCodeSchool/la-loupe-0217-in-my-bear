@@ -41,15 +41,14 @@ const userSchema = new mongoose.Schema({
         default: "img/imageProfil.png"
     },
     favourites: [{
-            beerId: {
-                type: String
-            },
-            addedDate: {
-                type: Date,
-                default: Date.now
-            }
+        beerId: {
+            type: String
+        },
+        addedDate: {
+            type: Date,
+            default: Date.now
         }
-    ]
+    }]
 });
 
 userSchema.methods.comparePassword = function(pwd, cb) {
@@ -168,35 +167,40 @@ export default class User {
     }
     addBeer(req, res) {
         model.findOneAndUpdate({
-              _id: req.params.id
+                _id: req.params.id
             }, {
-              $push: {
-                favourites: {
-                  beerId: req.body.beer
-                }}},
-                (err, user) => {
-              if (err || !user) {
-                  res.status(500).send(err.message);
-              } else {
-                  res.json(user);
-              }
-          });
-      }
-      delBeer(req, res) {
-          model.findOneAndUpdate({
-                _id: req.body.user,
-              }, {
-                $pull: {
-                  favourites: {beerId: req.body.beer
-                  }}},
-                  (err, user) => {
+                $push: {
+                    favourites: {
+                        beerId: req.body.beer
+                    }
+                }
+            },
+            (err, user) => {
                 if (err || !user) {
                     res.status(500).send(err.message);
                 } else {
                     res.json(user);
                 }
             });
-        }
+    }
+    delBeer(req, res) {
+        model.findOneAndUpdate({
+                _id: req.body.user,
+            }, {
+                $pull: {
+                    favourites: {
+                        beerId: req.body.beer
+                    }
+                }
+            },
+            (err, user) => {
+                if (err || !user) {
+                    res.status(500).send(err.message);
+                } else {
+                    res.json(user);
+                }
+            });
+    }
     delete(req, res) {
         model.findByIdAndRemove(req.params.id, (err) => {
             if (err) {

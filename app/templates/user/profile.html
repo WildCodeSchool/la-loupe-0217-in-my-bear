@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-offset-5 col-lg-2 col-xs-offset-3 col-xs-6 profilPadding">
-            <a href="" data-toggle="modal" data-target="#myModal" class=""><img src="{{ user.avatar }}" class="img-responsive img-circle" alt="..."></a>
+        <div class="col-lg-offset-5 col-lg-2 col-md-offset-4 col-md-2 col-sm-offset-4 col-sm-2 col-xs-offset-2 col-xs-6 profilPadding">
+            <a href="" data-toggle="modal" data-target="#myModal"><img src="{{ user.avatar }}" alt="..."></a>
         </div>
         <!-- Modal -->
         <div class="modal fade modalHeight" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -9,34 +9,19 @@
                 <div class="modal-content profilModal">
                     <div class="modal-header profilModalText">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true"><span>&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Avatar choice</h4>
+                        <h4 class="modal-title profilText" id="myModalLabel">Avatar choice</h4>
                     </div>
                     <div class="modal-body">
                         <div class="row modalImage">
                             <div class="col-lg-offset-2 col-lg-8 col-xs-offset-1 col-xs-11 profilImage">
-                                <a href=""><img src="img/imgProfilMini.png" alt="..."></a>
-                                <a href=""><img src="img/imgBear1Mini.png" alt="..."></a>
-                                <a href=""><img src="img/imgBear2Mini.png" alt="..."></a>
-                                <a href=""><img src="img/imgCoalaMini.png" alt="..."></a>
-                                <a href=""><img src="img/imgDeerMini.png" alt="..."></a>
-                                <a href=""><img src="img/imgDogMini.png" alt="..."></a>
-                                <a href=""><img src="img/imgFoxMini.png" alt="..."></a>
-                                <a href=""><img src="img/imgFrogMini.png" alt="..."></a>
-                                <a href=""><img src="img/imgLazyMini.png" alt="..."></a>
-                                <a href=""><img src="img/imgMonkeyMini.png" alt="..."></a>
-                                <a href=""><img src="img/imgPanda1Mini.png" alt="..."></a>
-                                <a href=""><img src="img/imgPanda2Mini.png" alt="..."></a>
-                                <a href=""><img src="img/imgPigMini.png" alt="..."></a>
-                                <a href=""><img src="img/imgRaccoonMini.png" alt="..."></a>
-                                <a href=""><img src="img/imgRhinocerosMini.png" alt="..."></a>
-                                <a href=""><img src="img/imgTigerMini.png" alt="..."></a>
-                                <a href=""><img src="img/imgWolfMini.png" alt="..."></a>
+                                <a href="" ng-repeat="avatar in avatars"><img  class="avatarHeigth" src="{{avatar}}" ng-click="updateAvatar(avatar)"></a>
+
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <h4 class="text-center profilModalText profilText">For change avatar please click sure picture</h4>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-warning modalButton">Save changes</button>
                     </div>
                 </div>
             </div>

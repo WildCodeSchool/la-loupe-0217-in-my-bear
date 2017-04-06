@@ -24,7 +24,7 @@ module.exports = (app) => {
 
     router.put('/newbeer/:id', Auth.hasAuthorization, user.addBeer);
 
-    router.put('/:id', Auth.isAdministrator, user.update);
+    router.put('/:id', Auth.hasAuthorization, user.update);
 
     router.delete('/:id', Auth.isAdministrator, user.delete);
 
