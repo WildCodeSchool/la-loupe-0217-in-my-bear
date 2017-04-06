@@ -9,6 +9,7 @@ angular.module('app')
           }, function error (err) {
           });
       };
+      $scope.displayBlock = false;
       $scope.comments = [];
       var getComments = function(beerId) {
         CommentService.getAllByBeerId(beerId).then(function(res) {
