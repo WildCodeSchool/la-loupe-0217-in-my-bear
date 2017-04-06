@@ -1,8 +1,8 @@
-<div class="container heightFooterSearch">
+<div class="container">
     <div class="row searchBar">
         <form ng-submit="submit">
             <input type="text" ng-model="query">
-            <button ng-click="addBeer(); displayBlock = true">Cheeeeeers !</button>
+            <button ng-click="searchBeer(); displayBlock = true">Cheeeeeers !</button>
         </form>
     </div>
     <div class="row">
@@ -32,7 +32,7 @@
                     <img class="img-responsive img-left imgBeer col-lg-2" src="{{beer[0].image_url}}">
                     <hr class="visible-xs">
                     <p class="desc">{{ beer[0].description }}</p>
-                    <a class="btn btn-warning" ng-click="addBeer(beer.id)"> Add to Fav </a>
+                    <a class="btn btn-warning" ng-click="addBeer(beer[0].id)"> Add to Fav </a>
                 </div>
             </div>
         </div>

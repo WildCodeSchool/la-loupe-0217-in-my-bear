@@ -19,6 +19,7 @@ angular.module('app')
       $scope.delBeer = function (beerId) {
         UserService.delBeer($scope.user._id, beerId).then(function(res) {
         });
+        location.reload();
       };
       $scope.addComment = function (beerId, beerName, content) {
         var comment = {
