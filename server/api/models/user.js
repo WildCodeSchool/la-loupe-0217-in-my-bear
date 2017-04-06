@@ -36,6 +36,10 @@ const userSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
+    registerDay: {
+      type: Date,
+      default: Date.now
+    },
     avatar: {
         type: String,
         default: "img/imageProfil.png"
