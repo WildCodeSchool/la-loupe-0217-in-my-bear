@@ -14,7 +14,6 @@ angular.module('app')
         CommentService.getAllByBeerId(beerId).then(function(res) {
           $scope.comments = res.data;
         }, function(err) {
-          console.error('err comments beer', err);
         });
       };
       $scope.delBeer = function (beerId) {

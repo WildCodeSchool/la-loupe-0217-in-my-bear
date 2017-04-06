@@ -273,6 +273,7 @@
 }
 body {
   font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  position: relative;
 }
 h1,
 h2,
@@ -398,4 +399,10 @@ span {
 .avatarHeigth {
   height: 50px;
   width: 50px;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
