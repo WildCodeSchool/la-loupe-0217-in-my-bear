@@ -34,7 +34,7 @@
     background: rgba(139, 38, 21, 0.8);
     height: auto;
     padding-bottom: 30px;
-    position: relative;
+    position: absolute;
     width: 100%;
 }
 
@@ -276,6 +276,11 @@
 }
 body {
   font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  height: 100%;
+  position: relative;
+}
+html {
+  height: 100%;
 }
 h1,
 h2,
@@ -413,4 +418,17 @@ span {
 }
 .heightFooterSearch {
   height: 50em;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+#wrap {
+  position: relative;
+  min-height: 100%;
+}
+#main {
+  position: relative;
+  padding-bottom: 100px;
 }
