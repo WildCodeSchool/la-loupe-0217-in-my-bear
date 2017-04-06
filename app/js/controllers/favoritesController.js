@@ -27,6 +27,7 @@ angular.module('app')
           title: beerName,
           body: content
         };
+        location.reload();
         CommentService.addComment(comment).then(function(res) {
         });
       };
