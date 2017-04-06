@@ -55,7 +55,7 @@
                     <div ng-repeat="comment in comments" class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Comments of {{ comment.title }} by {{ comment.author.name }},</h4><br>
-                        <h6>On {{ comment.date }}</h6>
+                        <h6>On {{ comment.date | date : fullDate }}</h6>
                         <p>{{ comment.body }}</p>
                     </div>
                     <div class="modal-body">
