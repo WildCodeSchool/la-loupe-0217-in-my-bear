@@ -432,3 +432,6 @@ footer {
   position: relative;
   padding-bottom: 100px;
 }
+.builtWith {
+  margin-right: 20px;
+}
