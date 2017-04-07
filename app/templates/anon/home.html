@@ -54,6 +54,6 @@
               <img class="img-responsive img-border img-left imgBeer col-lg-2" ng-src="{{ beer.image_url }}" alt="">
               <hr class="visible-xs">
               <p>{{ beer.description }}</p>
-              <a class="btn btn-warning" ng-click="addBeer(beer.id)"> Add to Fav </a>
+              <a class="btn btn-warning" ng-show="auth.isAuthenticated()" ng-click="addBeer(beer.id)"> Add to Fav </a>
           </div>
   </div>
