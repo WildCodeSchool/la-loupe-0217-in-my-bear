@@ -68,13 +68,13 @@
                                 <input type="text" name="author" id="author" value="{{ user.name }}" /><br/>
                                 <label for="comment"><strong>Comment :</strong></label><br/>
                                 <textarea type="text" name="comment" ng-model="beer.content" rows="8" cols="45" placeholder="Your comment..."></textarea><br/>
-                                <select name="Rate">
+                                <!-- <select name="Rate">
                                   <option value="1">1</option>
                                   <option value="2">2</option>
                                   <option value="3">3</option>
                                   <option value="4">4</option>
                                   <option value="5">5</option>
-                                </select>
+                                </select> -->
                                 <a class="btn btn-success" ng-click="addComment(beer.id, beer.name, beer.content)">Post</a>
                             </p>
                         </form>
