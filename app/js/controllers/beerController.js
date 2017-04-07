@@ -1,6 +1,7 @@
 
 angular.module('app')
-    .controller('BeerController', function($scope, BeerService, UserService, CurrentUser) {
+    .controller('BeerController', function($scope, Auth, BeerService, UserService, CurrentUser) {
+      $scope.auth = Auth;
       $scope.afficher = function() {
         $scope.beers = [];
 
